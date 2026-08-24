@@ -1,0 +1,31 @@
+<!-- ==================== 9. CTA BANNER ==================== -->
+<section class="py-16 sm:py-20 bg-[var(--bg-page)] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div
+      class="rounded-[36px] p-8 sm:p-12 lg:p-14 bg-[var(--bg-card)] border-2 border-[var(--color-primary)]/30 shadow-[0_20px_50px_-15px_rgba(15,79,205,0.12)] backdrop-blur-md relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10">
+      
+      <!-- Text -->
+      <div class="space-y-4 text-center md:text-left" [class.md:text-right]="translationService.isArabic()">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
+          {{ t('cta.title') }}
+        </h2>
+        <p class="text-xs sm:text-sm lg:text-base text-[var(--text-secondary)] max-w-2xl leading-[1.85]">
+          {{ t('cta.subtext') }}
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <div class="flex-shrink-0">
+        <a href="#contact"
+          class="px-8 sm:px-10 py-4 sm:py-4.5 rounded-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-black text-xs sm:text-sm uppercase tracking-wider flex items-center gap-3 shadow-xl shadow-blue-500/25 transform hover:-translate-y-0.5 transition-all text-center">
+          <span>{{ t('cta.btn') }}</span>
+          <svg class="w-4 h-4 transform" [class.rotate-180]="translationService.isArabic()" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,250 @@
+<!-- ==================== 6. DIGITAL SOLUTIONS PRODUCTS SECTION (BENTO GRID SHOWCASE) ==================== -->
+<section id="solutions" class="py-20 sm:py-24 bg-[var(--bg-page)] relative overflow-hidden">
+  
+  <!-- Subtle Ambient Glow -->
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-10 sm:space-y-12">
+
+    <!-- Section Header -->
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
+        {{ t('cases.badge') }}
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-[1.25]">
+        {{ t('cases.mainTitle') }}
+      </h2>
+      <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium max-w-2xl mx-auto">
+        {{ t('cases.subtitle') }}
+      </p>
+    </div>
+
+    <!-- Exact Bento Grid (Matching User Reference Image) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+      
+      <!-- ==================== COLUMN 1 (LEFT) ==================== -->
+      <div class="flex flex-col gap-5 lg:gap-6">
+        
+        <!-- 1. Tall Vertical Product Card (HUNAIX ERP) -->
+        <div
+          class="relative h-[360px] sm:h-[420px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+            alt="HUNAIX ERP"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          
+          <!-- Bottom Dark Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <!-- Bottom Card Content -->
+          <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <div class="flex items-center gap-3.5 mb-2">
+              <!-- Diamond Logo Badge (As in Image) -->
+              <div class="w-10 h-10 rounded-xl bg-white shadow-md transform rotate-45 flex items-center justify-center flex-shrink-0">
+                <img style="width: 22px; height: 22px;"
+                  src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                  class="transform -rotate-45 brightness-0"
+                  alt="HUNAIX ERP">
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-black text-white leading-tight">HUNAIX ERP</h3>
+                <span class="text-xs text-slate-300 font-medium line-clamp-1">
+                  {{ translationService.isArabic() ? 'إدارة الموارد والعمليات المالية' : 'Enterprise Resource Planning' }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Explore More Link -->
+            <a href="#contact"
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-2 transition-colors">
+              <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
+              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Logo / Brand Badge Card (Square at Bottom Left) -->
+        <div
+          class="h-[160px] sm:h-[180px] rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] flex items-center justify-center p-6 group hover:shadow-xl transition-all">
+          <div class="flex flex-col items-center justify-center gap-2.5 transform group-hover:scale-105 transition-transform">
+            <img style="width: 55px; height: 55px;"
+              src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+              class="dark:brightness-100 brightness-0"
+              alt="HUNAIX">
+            <span class="text-xs font-black tracking-widest text-[var(--color-primary)]">HUNAIX SUITE</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== COLUMN 2 (MIDDLE) ==================== -->
+      <div class="flex flex-col gap-5 lg:gap-6">
+        
+        <!-- 3. Solid Blue Info Header Card (Top Middle) -->
+        <div
+          class="h-[160px] sm:h-[180px] rounded-3xl bg-gradient-to-br from-[#156FFF] to-[#0F4FCD] text-white p-6 sm:p-7 flex flex-col justify-center shadow-xl shadow-blue-500/20 relative overflow-hidden">
+          <div class="space-y-1.5 relative z-10">
+            <h3 class="text-xl sm:text-2xl font-black text-white leading-tight">
+              {{ translationService.isArabic() ? 'حلولنا الرقمية' : 'Digital Solutions' }}
+            </h3>
+            <p class="text-xs sm:text-sm text-blue-100 leading-[1.7] font-medium">
+              {{ translationService.isArabic() ? 'أنظمة ومنصات سحابية ذكية لتسريع نمو وتطوير أعمالك.' : 'Smart cloud platforms designed to accelerate your enterprise growth.' }}
+            </p>
+          </div>
+        </div>
+
+        <!-- 4. Landscape Product Card (HUNAIX ANALYZER) -->
+        <div
+          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+          <img
+            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+            alt="HUNAIX ANALYZER"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <div class="flex items-center gap-3.5 mb-1">
+              <div class="w-9 h-9 rounded-xl bg-white shadow-md transform rotate-45 flex items-center justify-center flex-shrink-0">
+                <img style="width: 18px; height: 18px;"
+                  src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                  class="transform -rotate-45 brightness-0"
+                  alt="HUNAIX ANALYZER">
+              </div>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">HUNAIX ANALYZER</h3>
+                <span class="text-[11px] text-slate-300 font-medium line-clamp-1">
+                  {{ translationService.isArabic() ? 'لوحات القيادة والتحليلات البيانية' : 'BI & Advanced Analytics' }}
+                </span>
+              </div>
+            </div>
+
+            <a href="#contact"
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+              <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
+              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Landscape Product Card (HUNAIX SOCIAL) -->
+        <div
+          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+          <img
+            src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
+            alt="HUNAIX SOCIAL"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <div class="flex items-center gap-3.5 mb-1">
+              <div class="w-9 h-9 rounded-xl bg-white shadow-md transform rotate-45 flex items-center justify-center flex-shrink-0">
+                <img style="width: 18px; height: 18px;"
+                  src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                  class="transform -rotate-45 brightness-0"
+                  alt="HUNAIX SOCIAL">
+              </div>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">HUNAIX SOCIAL</h3>
+                <span class="text-[11px] text-slate-300 font-medium line-clamp-1">
+                  {{ translationService.isArabic() ? 'إدارة التواصل والمحتوى الرقمي' : 'Social Media & Engagement' }}
+                </span>
+              </div>
+            </div>
+
+            <a href="#contact"
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+              <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
+              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== COLUMN 3 (RIGHT) ==================== -->
+      <div class="flex flex-col gap-5 lg:gap-6">
+        
+        <!-- 6. Landscape Product Card (HUNAIX AUDITOR) -->
+        <div
+          class="relative h-[180px] sm:h-[195px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+            alt="HUNAIX AUDITOR"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <div class="absolute inset-0 p-6 flex flex-col justify-end">
+            <div class="flex items-center gap-3.5 mb-1">
+              <div class="w-9 h-9 rounded-xl bg-white shadow-md transform rotate-45 flex items-center justify-center flex-shrink-0">
+                <img style="width: 18px; height: 18px;"
+                  src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                  class="transform -rotate-45 brightness-0"
+                  alt="HUNAIX AUDITOR">
+              </div>
+              <div>
+                <h3 class="text-sm sm:text-base font-black text-white leading-tight">HUNAIX AUDITOR</h3>
+                <span class="text-[11px] text-slate-300 font-medium line-clamp-1">
+                  {{ translationService.isArabic() ? 'التدقيق والحوكمة والامتثال' : 'Governance, Risk & Audit' }}
+                </span>
+              </div>
+            </div>
+
+            <a href="#contact"
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+              <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
+              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Large Hero Product Card (HUNAIX AUTOMATION) -->
+        <div
+          class="relative h-[370px] sm:h-[415px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+          <img
+            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+            alt="HUNAIX AUTOMATION"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+          <div class="absolute inset-0 p-6 sm:p-7 flex flex-col justify-end">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="w-12 h-12 rounded-2xl bg-white shadow-lg transform rotate-45 flex items-center justify-center flex-shrink-0">
+                <img style="width: 24px; height: 24px;"
+                  src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                  class="transform -rotate-45 brightness-0"
+                  alt="HUNAIX AUTOMATION">
+              </div>
+              <div>
+                <h3 class="text-lg sm:text-xl font-black text-white leading-tight">HUNAIX AUTOMATION</h3>
+                <span class="text-xs text-slate-300 font-medium line-clamp-1">
+                  {{ translationService.isArabic() ? 'أتمتة العمليات وسير العمل الذكي' : 'Workflow RPA & Automation' }}
+                </span>
+              </div>
+            </div>
+
+            <a href="#contact"
+              class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-sky-400 hover:text-white pt-2 transition-colors">
+              <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
+              <svg class="w-4 h-4 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

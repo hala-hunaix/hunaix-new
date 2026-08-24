@@ -1,0 +1,107 @@
+<!-- ==================== 3. ABOUT US & STATS SECTION (WHO WE ARE & VISION) ==================== -->
+<section id="about" class="py-20 sm:py-24 bg-[var(--bg-page-soft)] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+    <!-- Left Side: Diamond Badge + Photo Cluster Grid -->
+    <div class="lg:col-span-5 relative flex items-center justify-center min-h-[340px] sm:min-h-[380px]">
+      <!-- 4 Tilted Image Grid -->
+      <div class="grid grid-cols-2 gap-3 sm:gap-4 w-60 h-60 sm:w-72 sm:h-72 transform rotate-12">
+        <div
+          class="rounded-3xl overflow-hidden shadow-md border-2 border-white/40 dark:border-white/10 transform -rotate-6 hover:scale-105 transition-all">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-full object-cover" alt="Enterprise building" />
+        </div>
+        <div
+          class="rounded-3xl overflow-hidden shadow-md border-2 border-white/40 dark:border-white/10 transform rotate-3 hover:scale-105 transition-all">
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-full object-cover" alt="Office workspace" />
+        </div>
+        <div
+          class="rounded-3xl overflow-hidden shadow-md border-2 border-white/40 dark:border-white/10 transform rotate-6 hover:scale-105 transition-all">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-full object-cover" alt="Tech data lab" />
+        </div>
+        <div
+          class="rounded-3xl overflow-hidden shadow-md border-2 border-white/40 dark:border-white/10 transform -rotate-3 hover:scale-105 transition-all">
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=400&q=80"
+            class="w-full h-full object-cover" alt="Team meeting" />
+        </div>
+      </div>
+
+      <!-- Central Floating Diamond Badge "About Us" with Soft Rounded Corners -->
+      <div
+        class="absolute z-20 w-32 h-32 sm:w-36 sm:h-36 rounded-3xl bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-primary-light)] transform rotate-45 flex items-center justify-center shadow-xl shadow-blue-600/25 border-4 border-white/50 dark:border-blue-900/50 cursor-pointer hover:scale-105 transition-transform duration-300">
+        <div class="transform -rotate-45 text-center text-white select-none">
+          <div class="font-black text-base sm:text-lg tracking-tight leading-tight">{{ t('about.badge') }}</div>
+          <img style="width: 45px;height: 45px;margin: 4px auto;"
+            src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Headline, Vision / Mission / Values & Description -->
+    <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
+      [class.lg:text-right]="translationService.isArabic()">
+      <div class="space-y-4">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-[1.25]">
+          {{ t('about.title') }}
+        </h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] max-w-2xl">
+          {{ t('about.description') }}
+        </p>
+      </div>
+
+      <!-- Vision / Mission / Values Cards Row from Page 2 of Profile -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+        <div
+          class="bg-[var(--bg-card)] rounded-3xl p-5 sm:p-6 border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] space-y-2 hover:border-[var(--color-primary)]/40 transition-all">
+          <div class="text-xs font-black text-[var(--color-primary)] uppercase tracking-wider">{{ t('about.visionTitle')
+            }}</div>
+          <p class="text-xs text-[var(--text-secondary)] leading-[1.8]">{{ t('about.visionText') }}</p>
+        </div>
+        <div
+          class="bg-[var(--bg-card)] rounded-3xl p-5 sm:p-6 border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] space-y-2 hover:border-[var(--color-primary)]/40 transition-all">
+          <div class="text-xs font-black text-[var(--color-primary)] uppercase tracking-wider">{{
+            t('about.missionTitle') }}
+          </div>
+          <p class="text-xs text-[var(--text-secondary)] leading-[1.8]">{{ t('about.missionText') }}</p>
+        </div>
+        <div
+          class="bg-[var(--bg-card)] rounded-3xl p-5 sm:p-6 border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] space-y-2 hover:border-[var(--color-primary)]/40 transition-all">
+          <div class="text-xs font-black text-[var(--color-primary)] uppercase tracking-wider">{{ t('about.valuesTitle')
+            }}</div>
+          <p class="text-xs text-[var(--text-secondary)] leading-[1.8]">{{ t('about.valuesText') }}</p>
+        </div>
+      </div>
+
+      <!-- 3 Horizontal Stat Counters -->
+      <div class="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-[var(--border-color)] text-center">
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--color-primary)] tracking-tight">6+
+          </div>
+          <div class="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-[var(--text-secondary)]">{{
+            t('about.stat1Label') }}</div>
+        </div>
+
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--color-primary)] tracking-tight">100%
+          </div>
+          <div class="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-[var(--text-secondary)]">{{
+            t('about.stat2Label') }}</div>
+        </div>
+
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--color-primary)] tracking-tight">300+
+          </div>
+          <div class="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-[var(--text-secondary)]">{{
+            t('about.stat3Label') }}</div>
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm text-[var(--text-muted)] italic leading-[1.8]">
+        {{ t('about.subtext') }}
+      </p>
+    </div>
+  </div>
+</section>

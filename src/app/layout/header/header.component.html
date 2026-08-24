@@ -1,0 +1,115 @@
+<!-- ==================== 1. TOP HEADER & NAVBAR ==================== -->
+<header class="relative z-40 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-4 flex items-center justify-between">
+  <!-- Brand Logo -->
+  <a href="#" class="flex items-center group">
+    @if (!themeService.isDark()) {
+      <img src="images/logo-horizontal-enterprise.png" alt="HUNAIX Logo"
+        class="h-8 sm:h-9 w-auto object-contain">
+    } @else {
+      <img src="images/logo-horizontal-white.png" alt="HUNAIX Logo"
+        class="h-8 sm:h-9 w-auto object-contain">
+    }
+  </a>
+
+  <!-- Desktop Navigation Menu -->
+  <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-[var(--text-secondary)]">
+    @for (item of contentService.navMenu; track item.href) {
+      <a [href]="item.href" class="hover:text-[var(--color-primary)] transition-colors">
+        {{ localize(item.label) }}
+      </a>
+    }
+  </nav>
+
+  <!-- Header Actions (Language Toggle, Theme Toggle & CTA) -->
+  <div class="flex items-center gap-2 sm:gap-3">
+    <!-- Language Switcher Button -->
+    <button (click)="toggleLanguage()"
+      [title]="translationService.isArabic() ? 'Switch to English' : 'التحويل إلى العربية'"
+      class="h-9 px-3 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] text-xs font-bold flex items-center gap-1.5 shadow-sm hover:border-[var(--color-primary)] transition-all cursor-pointer">
+      <svg class="w-4 h-4 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+      <span>{{ translationService.isArabic() ? 'EN' : 'عربي' }}</span>
+    </button>
+
+    <!-- Dark/Light Mode Switcher Button -->
+    <button (click)="toggleTheme()" [title]="themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+      class="w-9 h-9 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] flex items-center justify-center shadow-sm hover:border-[var(--color-primary)] transition-all transform hover:scale-105 active:scale-95 cursor-pointer">
+      @if (themeService.isDark()) {
+        <!-- Sun Icon (for Dark Mode) -->
+        <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      } @else {
+        <!-- Moon Icon (for Light Mode) -->
+        <svg class="w-4 h-4 text-slate-700" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      }
+    </button>
+
+    <!-- Get Started Header Button -->
+    <a href="#contact"
+      class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--color-primary)] text-white shadow-md shadow-blue-500/20 hover:bg-[var(--color-primary-light)] transition-all transform hover:-translate-y-0.5">
+      <span>{{ t('header.getStarted') }}</span>
+      <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button (click)="toggleMobileMenu()"
+      class="lg:hidden w-9 h-9 rounded-full border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-primary)] flex items-center justify-center cursor-pointer">
+      @if (!isMobileMenuOpen()) {
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      } @else {
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      }
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Drawer Menu -->
+@if (isMobileMenuOpen()) {
+  <div class="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col justify-between p-6">
+    <div class="flex items-center justify-between pb-4 border-b border-white/20">
+      <img src="images/logo-horizontal-white.png" alt="HUNAIX Logo" class="h-8 w-auto object-contain">
+      <button (click)="closeMobileMenu()"
+        class="w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex flex-col space-y-4 py-8 text-center text-lg font-bold text-white">
+      @for (item of contentService.navMenu; track item.href) {
+        <a [href]="item.href" (click)="closeMobileMenu()"
+          class="py-2 hover:text-[var(--color-primary-light)] transition-colors">
+          {{ localize(item.label) }}
+        </a>
+      }
+    </nav>
+
+    <div class="flex flex-col gap-3 pt-4 border-t border-white/20">
+      <button (click)="toggleLanguage(); closeMobileMenu()"
+        class="w-full py-3 rounded-xl bg-white/10 text-white font-bold text-sm">
+        {{ translationService.isArabic() ? 'Switch to English' : 'التحويل إلى العربية' }}
+      </button>
+      <a href="#contact" (click)="closeMobileMenu()"
+        class="w-full py-3 text-center rounded-xl bg-[var(--color-primary)] text-white font-bold text-sm">
+        {{ t('header.getStarted') }}
+      </a>
+    </div>
+  </div>
+}

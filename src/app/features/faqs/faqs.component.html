@@ -1,0 +1,58 @@
+<!-- ==================== 10. FAQS SECTION (FREQUENTLY ASKED QUESTIONS) ==================== -->
+<section id="faqs" class="py-20 sm:py-24 bg-[var(--bg-page)] relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+    <!-- Section Header (Pill Badge + Title) -->
+    <div class="text-center space-y-4 mb-12 sm:mb-16">
+      <div
+        class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]"></span>
+        {{ t('faq.badge') }}
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-[1.25]">
+        {{ t('faq.title') }}
+      </h2>
+    </div>
+
+    <!-- FAQ Accordion List with Generous Padding and Soft Shadows -->
+    <div class="space-y-5">
+      @for (faq of contentService.faqs; track faq.id; let i = $index) {
+      <div
+        class="rounded-3xl border border-[var(--border-color-card)] bg-[var(--bg-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_35px_-10px_rgba(15,79,205,0.08)] hover:border-[var(--color-primary)]/40 transition-all duration-300 overflow-hidden">
+
+        <!-- Accordion Header Button -->
+        <button (click)="toggleFaq(i)" type="button"
+          class="w-full p-6 sm:p-7 flex items-center justify-between gap-5 cursor-pointer select-none text-left rtl:text-right transition-colors">
+
+          <!-- Arrow Icon Circle (Located at Left in RTL) -->
+          <div
+            class="w-10 h-10 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] flex items-center justify-center flex-shrink-0 transition-all duration-300 order-2 rtl:order-1"
+            [class.rotate-180]="isFaqOpen(i)" [class.bg-[var(--color-primary)]]="isFaqOpen(i)"
+            [class.text-white]="isFaqOpen(i)">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+
+          <!-- Question Text -->
+          <span
+            class="font-black text-sm sm:text-base lg:text-lg text-[var(--text-primary)] leading-snug order-1 rtl:order-2 flex-1">
+            {{ localize(faq.question) }}
+          </span>
+        </button>
+
+        <!-- Accordion Body Answer with Enhanced Arabic Line Height -->
+        @if (isFaqOpen(i)) {
+        <div
+          class="px-6 sm:px-7 pb-6 sm:pb-7 text-xs sm:text-sm lg:text-base text-[var(--text-secondary)] leading-[1.85] border-t border-[var(--border-color-light)] pt-5 animate-fade-in font-medium">
+          {{ localize(faq.answer) }}
+        </div>
+        }
+      </div>
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,126 @@
+/* ==========================================================================
+   APP COMPONENT STYLES
+   Exact UI Layout Details, Bilingual RTL Support & Responsive Animations
+   ========================================================================== */
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+
+/* Fluid Hero Top Left Diagonal Curve (RTL) */
+.hero-diagonal-shape-rtl {
+  right: auto;
+  left: -80px;
+  transform: skewX(16deg);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 120px;
+}
+
+@media (max-width: 1024px) {
+  .hero-diagonal-shape {
+    display: none;
+  }
+}
+
+/* Dot pattern for services section */
+.bg-dot-pattern {
+  background-image: radial-gradient(var(--border-color) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* Orbital rotation animation */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 40s linear infinite;
+}
+
+/* Line clamp helpers */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Transitions & Animations */
+button,
+a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+/* Custom ROI Range Slider Styling */
+.hunaix-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(148, 163, 184, 0.2);
+  outline: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hunaix-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hunaix-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
+}
+
+.hunaix-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}

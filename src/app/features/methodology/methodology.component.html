@@ -1,0 +1,180 @@
+<!-- ==================== 5. OUR METHODOLOGY / منهجية العمل ==================== -->
+<section id="methodology" class="py-20 sm:py-24 bg-[var(--bg-page-soft)] relative overflow-hidden">
+
+  <!-- Subtle Ambient Glow -->
+  <div
+    class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--color-primary)]/5 rounded-full blur-3xl pointer-events-none">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+    <!-- Left Side: Precision Layered Diamond with 6 Floating Icons (Charts, Company, Money, Invoices, People, Social Media) -->
+    <div class="lg:col-span-5 relative flex items-center justify-center min-h-[420px] sm:min-h-[480px]">
+
+      <!-- Layer 1: Concentric Smooth Rounded Diamond SVG Track Lines -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 500 500" fill="none">
+        <!-- Outermost Rounded Diamond Stroke -->
+        <rect x="70" y="70" width="360" height="360" rx="72" transform="rotate(45 250 250)"
+          stroke="var(--color-primary)" stroke-width="1.5" stroke-opacity="0.12" />
+
+        <!-- Middle Rounded Diamond Stroke -->
+        <rect x="95" y="95" width="310" height="310" rx="60" transform="rotate(45 250 250)"
+          stroke="var(--color-primary)" stroke-width="1.5" stroke-opacity="0.22" />
+
+        <!-- Inner Rounded Diamond Stroke -->
+        <rect x="120" y="120" width="260" height="260" rx="50" transform="rotate(45 250 250)"
+          stroke="var(--color-primary)" stroke-width="1.5" stroke-opacity="0.3" />
+      </svg>
+
+      <!-- Layer 2: Soft Blue Tinted Translucent Diamond Halo Background -->
+      <div
+        class="absolute z-5 w-60 h-60 sm:w-72 sm:h-72 rounded-[48px] bg-blue-500/10 dark:bg-blue-400/5 transform rotate-45 border border-blue-500/20 backdrop-blur-xs">
+      </div>
+
+      <!-- Layer 3: Solid Gradient Core Diamond "Our Expertise / منهجية العمل" -->
+      <div
+        class="relative z-10 w-40 h-40 sm:w-48 sm:h-48 rounded-[36px] bg-gradient-to-tr from-[#0F4FCD] to-[#156FFF] transform rotate-45 flex items-center justify-center shadow-2xl shadow-blue-600/35 border-4 border-white/60 dark:border-blue-900/60 cursor-pointer hover:scale-105 transition-transform duration-300">
+        <div class="transform -rotate-45 text-center text-white select-none space-y-1">
+          <div class="font-black text-xl sm:text-2xl tracking-tight leading-tight">
+            {{ translationService.isArabic() ? 'منهجية العمل' : 'Our Expertise' }}
+          </div>
+          <img style="width: 45px; height: 45px;margin: 4px auto;"
+            src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png" alt="">
+          <!-- <div class="text-[10px] sm:text-xs font-mono font-extrabold tracking-widest opacity-85 uppercase">
+            {{ translationService.isArabic() ? 'METHODOLOGY' : 'HOW WE WORK' }}
+          </div> -->
+        </div>
+      </div>
+
+      <!-- ==================== 6 FLOATING SATELLITE ICONS ==================== -->
+
+      <!-- 1. TOP NODE: DIGITAL MEDIA (Cyan/Blue Circle) -->
+      <div
+        class="absolute top-2 sm:top-4 left-[34%] sm:left-[36%] z-20 w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-gradient-to-tr from-[#0284C7] to-[#38BDF8] text-white shadow-xl shadow-sky-500/30 flex items-center justify-center border-2 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="DIGITAL MEDIA / الوسائط الرقمية">
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+        </svg>
+      </div>
+
+      <!-- 2. TOP-LEFT NODE: SOCIAL MEDIA (Large Blue Circle) -->
+      <div
+        class="absolute top-10 sm:top-12 -left-2 sm:left-2 z-20 w-15 h-15 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-[#0F4FCD] to-[#156FFF] text-white shadow-2xl shadow-blue-600/35 flex items-center justify-center border-3 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="SOCIAL MEDIA / وسائل التواصل الاجتماعي">
+        <svg class="w-7 h-7 sm:w-9 sm:h-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+        </svg>
+      </div>
+
+      <!-- 3. MID-LEFT NODE: CHARTS (Emerald Green Circle) -->
+      <div
+        class="absolute bottom-24 sm:bottom-28 -left-1 sm:left-4 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#059669] to-[#10B981] text-white shadow-xl shadow-emerald-500/30 flex items-center justify-center border-2 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="CHARTS / الرسوم البيانية والتحليلات">
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      </div>
+
+      <!-- 4. FAR LOWER-LEFT NODE: PEOPLE (Purple Circle) -->
+      <div
+        class="absolute bottom-10 sm:bottom-12 -left-4 sm:-left-2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#8B5CF6] to-[#A855F7] text-white shadow-lg shadow-purple-500/25 flex items-center justify-center border-2 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="PEOPLE / الكوادر وفرق العمل">
+        <svg class="w-4.5 h-4.5 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      </div>
+
+      <!-- 5. LARGE BOTTOM-RIGHT NODE: MONEY (Large Vibrant Purple Circle with Pin/Cash) -->
+      <div
+        class="absolute bottom-2 sm:bottom-4 right-8 sm:right-14 z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-tr from-[#691BCE] to-[#8B5CF6] text-white shadow-2xl shadow-purple-600/40 flex items-center justify-center border-4 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="MONEY / الإدارة المالية والاستثمار">
+        <svg class="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+
+      <!-- 6. UPPER-RIGHT NODE: INVOICES (Blue Circle) -->
+      <div
+        class="absolute top-1/3 -right-2 sm:right-4 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-gradient-to-tr from-[#0284C7] to-[#38BDF8] text-white shadow-xl shadow-sky-500/30 flex items-center justify-center border-2 border-white dark:border-slate-800 transform hover:scale-125 transition-transform cursor-pointer group"
+        title="INVOICES / الفوترة الإلكترونية والمستندات">
+        <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </div>
+
+      <!-- Small Satellite Decorative Dot on upper-right track with Chart icon -->
+      <div
+        class="absolute top-18 right-16 sm:right-22 z-20 w-7 h-7 rounded-full bg-gradient-to-tr from-[#691BCE] to-[#8B5CF6] text-white shadow-md border-2 border-white dark:border-slate-800 flex items-center justify-center transform hover:scale-125 transition-transform cursor-pointer"
+        title="Analytics & Growth Chart">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- Right Side: Headline, Paragraph, & 4 Methodology Step Cards Grid -->
+    <div class="lg:col-span-7 space-y-6 text-center lg:text-left" [class.lg:text-right]="translationService.isArabic()">
+
+      <!-- Section Header -->
+      <div class="space-y-3">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
+          {{ t('expertise.badge') }}
+        </div>
+
+        <h2
+          class="text-3xl sm:text-4xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-[1.25]">
+          {{ t('expertise.title') }}
+        </h2>
+
+
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium max-w-2xl">
+          {{ t('expertise.description') }}
+        </p>
+      </div>
+
+      <!-- 4 Methodology Phase Cards Grid (2x2 Grid Matching the User's Image Content) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 pt-2">
+        @for (step of contentService.methodologySteps; track step.id) {
+        <div [class.shadow-md]="activeStepId() === step.id" [class.shadow-blue-500/10]="activeStepId() === step.id"
+          class="rounded-3xl p-6 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_35px_-10px_rgba(15,79,205,0.1)] hover:border-[var(--color-primary)]/40 transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer text-center sm:text-left"
+          [class.sm:text-right]="translationService.isArabic()">
+
+          <div class="space-y-3">
+            <!-- Step Pill Badge (Matching the Blue Pill in the Image) -->
+            <div class="flex items-center justify-between gap-2">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-white text-xs font-black tracking-wide shadow-sm"
+                [style.background]="'#0F4FCD'">
+                <span>{{ localize(step.title) }}</span>
+              </div>
+
+              <span class="text-xs font-mono font-black text-[var(--text-muted)]">
+                #{{ step.stepNumber }}
+              </span>
+            </div>
+
+            <!-- Step Description from the User Image -->
+            <p class="text-xs sm:text-sm text-[var(--text-primary)] font-bold leading-[1.8] pt-1">
+              {{ localize(step.description) }}
+            </p>
+          </div>
+
+
+
+        </div>
+        }
+      </div>
+
+    </div>
+
+  </div>
+</section>
