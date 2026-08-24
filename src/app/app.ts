@@ -1,5 +1,6 @@
 import { Component, inject, signal, HostListener, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './core/services/theme.service';
 import { TranslationService } from './core/services/translation.service';
 
@@ -7,30 +8,13 @@ import { TranslationService } from './core/services/translation.service';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
-// Feature Components
-import { HeroComponent } from './features/hero/hero.component';
-import { AboutComponent } from './features/about/about.component';
-import { ServicesComponent } from './features/services/services.component';
-import { MethodologyComponent } from './features/methodology/methodology.component';
-import { SolutionsComponent } from './features/solutions/solutions.component';
-import { CalculatorComponent } from './features/calculator/calculator.component';
-import { CtaBannerComponent } from './features/cta-banner/cta-banner.component';
-import { FaqsComponent } from './features/faqs/faqs.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
+    RouterOutlet,
     HeaderComponent,
-    HeroComponent,
-    AboutComponent,
-    ServicesComponent,
-    MethodologyComponent,
-    SolutionsComponent,
-    CalculatorComponent,
-    CtaBannerComponent,
-    FaqsComponent,
     FooterComponent
   ],
   templateUrl: './app.html',

@@ -8,7 +8,10 @@ import {
   NavMenuItem,
   FaqItem,
   RoiModuleOption,
-  MethodologyStep
+  MethodologyStep,
+  WhyUsPillar,
+  ProjectDetail,
+  ProjectModule
 } from '../models/hunaix.models';
 
 /**
@@ -21,13 +24,11 @@ import {
 export class ContentService {
 
   readonly navMenu: NavMenuItem[] = [
-    { id: 'about', label: { en: 'Who We Are', ar: 'من نحن' }, href: '#about' },
-    { id: 'services', label: { en: 'Our Services', ar: 'خدماتنا' }, href: '#services' },
-    { id: 'methodology', label: { en: 'How We Work', ar: 'كيف نعمل' }, href: '#methodology' },
-    { id: 'solutions', label: { en: 'Digital Solutions', ar: 'حلولنا الرقمية' }, href: '#solutions' },
-    { id: 'calculator', label: { en: 'ROI Calculator', ar: 'حاسبة التوفير' }, href: '#calculator' },
-    { id: 'faqs', label: { en: 'FAQs', ar: 'الأسئلة الشائعة' }, href: '#faqs' },
-    { id: 'contact', label: { en: 'Contact Us', ar: 'تواصل معنا' }, href: '#contact' }
+    { id: 'home', label: { en: 'Home', ar: 'الرئيسية' }, href: '/' },
+    { id: 'about', label: { en: 'Who We Are', ar: 'من نحن' }, href: '/about' },
+    { id: 'services', label: { en: 'Our Services', ar: 'خدماتنا' }, href: '/services' },
+    { id: 'projects', label: { en: 'Our Projects', ar: 'مشاريعنا ومنتجاتنا' }, href: '/projects' },
+    { id: 'contact', label: { en: 'Contact Us', ar: 'تواصل معنا' }, href: '/contact' }
   ];
 
   // 4 Main ROI Operational Modules
@@ -439,4 +440,303 @@ export class ContentService {
       }
     }
   ];
+
+  // Comprehensive Projects & Products Catalog (Dedicated Product Pages)
+  readonly projectsCatalog: ProjectDetail[] = [
+    {
+      id: 'erp',
+      name: 'HUNAIX ERP',
+      badge: { en: 'ENTERPRISE RESOURCE PLANNING', ar: 'إدارة الموارد والمالية الشاملة' },
+      title: { en: 'HUNAIX ERP Suite', ar: 'نظام HUNAIX ERP السحابي المتكامل' },
+      subtitle: {
+        en: 'One Platform. Infinite Possibilities. HUNAIX ERP unifies your business processes, financials, data, and teams in a single intelligent cloud platform built for growth and agility.',
+        ar: 'منصة موحدة وإمكانيات لا محدودة؛ تجمع إدارة الموارد والعمليات المالية والمحاسبية، شؤون الموظفين، وسلاسل الإمداد مع الامتثال الكامل لمتطلبات الفوترة الإلكترونية (ZATCA Phase 2).'
+      },
+      tagline: { en: 'One Platform. Infinite Possibilities.', ar: 'منصة موحدة.. إمكانيات لا محدودة' },
+      category: 'erp',
+      categoryName: { en: 'ERP & Finance', ar: 'الأنظمة المالية والإدارية' },
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+      previewImage: 'images/erp-dashboard.png',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #0F4FCD 0%, #156FFF 100%)',
+      overview: {
+        en: 'HUNAIX ERP is an enterprise-grade cloud system engineered specifically for modern businesses in the Kingdom of Saudi Arabia. It unifies general accounting, multi-currency ledgers, inventory management, point of sale, supply chain, and human resources with seamless ZATCA Phase 2 compliance.',
+        ar: 'نظام HUNAIX ERP هو نظام سحابي متطور مخصص للمنشآت والشركات في المملكة العربية السعودية. يدمج المحاسبة العامة، شؤون الموظفين والرواتب عبر منصة مدد، إدارة المستودعات والمشتريات، نقاط البيع المتصلة، مع الربط المباشر المعتمد لهيئة الزكاة والضريبة والجمارك.'
+      },
+      keyFeatures: [
+        { en: '100% ZATCA Phase 2 E-Invoicing Certified', ar: 'ربط مباشر ومعتمد مع منظومة الفوترة الإلكترونية المرحلة الثانية (ZATCA)' },
+        { en: 'Multi-Branch & Multi-Company Consolidated Ledgers', ar: 'إدارة متكاملة لتعدد الفروع والشركات بدفاتر أستاذ موحدة' },
+        { en: 'HR, Automated Payroll & Mudad Platform Sync', ar: 'شؤون الموظفين ومسيرات الرواتب المتوافقة مع منصة مدد والتأمينات' },
+        { en: 'Smart Warehouse & Supply Chain Tracking', ar: 'إدارة المستودعات وسلاسل الإمداد ومراقبة حركات الأصناف لحظياً' },
+        { en: 'Comprehensive Executive Financial Statements & P&L', ar: 'قوائم مالية وموازين مراجعة وتقارير أرباح وخسائر تفصيلية' }
+      ],
+      modules: [
+        {
+          title: { en: 'Financials & General Ledger', ar: 'الإدارة المالية ودفاتر الأستاذ' },
+          description: { en: 'Automated journal entries, charts of accounts, VAT returns, and multi-cost center accounting.', ar: 'شجرة حسابات مرنة، قيود يومية آلية، مراكز تكلفة متعددة، وإقرارات ضريبة القيمة المضافة.' },
+          icon: 'finance'
+        },
+        {
+          title: { en: 'ZATCA Phase 2 Integration', ar: 'الفوترة الإلكترونية المعتمدة (فاتورة 2)' },
+          description: { en: 'Instant XML generation, cryptographic stamps, QR codes, and real-time clearance/reporting.', ar: 'توليد فوري للأختام الرقمية ورموز الاستجابة السريعة (QR) والربط المباشر مع بوابة فاتورة.' },
+          icon: 'shield'
+        },
+        {
+          title: { en: 'HR & Payroll Automation', ar: 'الموارد البشرية والرواتب' },
+          description: { en: 'Employee records, attendance, automated WPS payroll calculation, and Saudi labor law rules.', ar: 'سجلات الموظفين، حساب الإجازات ومكافأة نهاية الخدمة، ومسيرات رواتب متوافقة مع حماية الأجور.' },
+          icon: 'people'
+        },
+        {
+          title: { en: 'Inventory & Procurement', ar: 'المستودعات والمشتريات' },
+          description: { en: 'Batch numbers, barcode scanning, purchase orders, vendor evaluation, and minimum reorder triggers.', ar: 'تتبع الأصناف، أوامر الشراء وعروض الموردين، وإشعارات تلقائية للحدود الدنيا للمخزون.' },
+          icon: 'inventory'
+        },
+        {
+          title: { en: 'Connected Multi-Branch POS', ar: 'نقاط البيع والفروع' },
+          description: { en: 'Fast checkout, offline capability, shift management, and instant cloud data synchronization.', ar: 'واجهة بيع سريعة، دعم العمل دون اتصال، تقفيل الورديات، ومزامنة فورية مع المركز الرئيسي.' },
+          icon: 'pos'
+        },
+        {
+          title: { en: 'Executive Dashboards', ar: 'لوحات القيادة والتقارير' },
+          description: { en: 'Instant drill-down into revenue, profit margins, operational cash flow, and branch performance.', ar: 'تقارير تفاعلية فورية للإيرادات، هوامش الربحية، ومؤشرات التدفق النقدي وكفاءة التشغيل.' },
+          icon: 'chart'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Faster Accounting Cycle', ar: 'تسريع إغلاق العمليات المحاسبية' }, value: '85%' },
+        { label: { en: 'ZATCA & Saudi Compliance', ar: 'مطابقة للأنظمة واللوائح السعودية' }, value: '100%' },
+        { label: { en: 'Operational Cost Reduction', ar: 'خفض التكاليف الإدارية والتشغيلية' }, value: '40%' }
+      ],
+      complianceBadge: { en: 'ZATCA Phase 2 Approved & KSA Cloud Hosted', ar: 'معتمد من هيئة الزكاة والضريبة والجمارك ومستضاف سحابياً بالمملكة' }
+    },
+    {
+      id: 'analyzer',
+      name: 'HUNAIX ANALYZER',
+      badge: { en: 'BI & ADVANCED ANALYTICS', ar: 'ذكاء الأعمال ولوحات القيادة' },
+      title: { en: 'HUNAIX ANALYZER Platform', ar: 'منصة HUNAIX ANALYZER لذكاء الأعمال' },
+      subtitle: {
+        en: 'Transform raw enterprise data into actionable visual intelligence, real-time KPI dashboards, and automated forecasts.',
+        ar: 'تحويل بيانات منشأتك إلى لوحات تحكم تفاعلية ومؤشرات أداء استراتيجية تمنح الإدارة وضوحاً كاملاً في اتخاذ القرارات.'
+      },
+      tagline: { en: 'Data-Driven Clarity for Leadership', ar: 'وضوح استراتيجي مبني على البيانات' },
+      category: 'analytics',
+      categoryName: { en: 'Data & Analytics', ar: 'التحليلات والبيانات' },
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+      color: '#D97706',
+      gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+      overview: {
+        en: 'HUNAIX ANALYZER centralizes data streams across finance, sales, branch performance, and operations. It provides customizable visualization widgets, automated anomaly alerts, and forecasting models.',
+        ar: 'منصة متقدمة تجمع مصادر البيانات من مختلف الأنظمة، لتقديم لوحات قيادة لحظية، وتنبيهات استباقية عند وجود انحرافات في المبيعات أو التكاليف، مع تقارير تنبؤية للنمو.'
+      },
+      keyFeatures: [
+        { en: 'Real-time multi-dimensional visual dashboards', ar: 'لوحات قيادة بيانية تفاعلية لحظية' },
+        { en: 'Automated executive PDF/Excel report delivery', ar: 'إرسال مجدول لتقارير الإدارة التنفيذية آلياً' },
+        { en: 'Predictive revenue and cash-flow modeling', ar: 'نماذج تنبؤية للإيرادات والتدفق النقدي' },
+        { en: 'Branch and team performance comparisons', ar: 'مقارنات دقيقة لأداء الفروع والفرق التشغيلية' }
+      ],
+      modules: [
+        {
+          title: { en: 'Executive Overview Dashboard', ar: 'لوحة التحكم التنفيذية الشاملة' },
+          description: { en: 'Real-time visibility over enterprise health, net profit, burn rate, and strategic KPIs.', ar: 'نظرة شاملة ولحظية على مؤشرات الصحة المالية، الأرباح، ومعدلات النمو التشغيلي.' },
+          icon: 'chart'
+        },
+        {
+          title: { en: 'Sales & Revenue Analysis', ar: 'تحليلات المبيعات والإيرادات' },
+          description: { en: 'Deep dive into top selling products, customer retention, sales reps performance, and seasonal trends.', ar: 'تحليل الأصناف الأكثر مبيعاً، سلوك العملاء، وأداء مسؤولي المبيعات حسب المواسم.' },
+          icon: 'revenue'
+        },
+        {
+          title: { en: 'Automated Alerts & Anomaly AI', ar: 'التنبيهات الذكية والانحرافات' },
+          description: { en: 'Instant notifications when expenses surge or performance dips below targets.', ar: 'إشعارات فورية عند ارتفاع المصروفات أو انخفاض مؤشرات الأداء عن المستهدفات المحددة.' },
+          icon: 'alert'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Faster Decision-Making Time', ar: 'سرعة اتخاذ القرارات التنفيذية' }, value: '3x' },
+        { label: { en: 'Data Accuracy & Consistency', ar: 'دقة وتناسق التقارير والبيانات' }, value: '99.9%' },
+        { label: { en: 'Saved Reporting Hours Monthly', ar: 'ساعات عمل موفرة في إعداد التقارير' }, value: '+120h' }
+      ],
+      complianceBadge: { en: 'Enterprise-Grade Security & Role-Based Access', ar: 'تشفير عالي وصلاحيات وصول متقدمة للمدراء والتنفيذيين' }
+    },
+    {
+      id: 'automation',
+      name: 'HUNAIX AUTOMATION',
+      badge: { en: 'INTELLIGENT WORKFLOW & RPA', ar: 'أتمتة العمليات وسير العمل' },
+      title: { en: 'HUNAIX AUTOMATION Platform', ar: 'منظومة HUNAIX AUTOMATION لأتمتة الإجراءات' },
+      subtitle: {
+        en: 'Eliminate repetitive manual bottlenecks and automate approvals, system integrations, and task dispatches seamlessly.',
+        ar: 'أتمتة شاملة للإجراءات والمهام المتكررة والاعتمادات وسير العمل بين الأقسام، لرفع الإنتاجية ومنع الأخطاء البشرية.'
+      },
+      tagline: { en: 'Smart Workflows Without Delays', ar: 'سير عمل ذكي بلا توقف أو تأخير' },
+      category: 'automation',
+      categoryName: { en: 'Workflow & RPA', ar: 'الأتمتة وسير العمل' },
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
+      color: '#7C3AED',
+      gradient: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)',
+      overview: {
+        en: 'HUNAIX AUTOMATION connects enterprise systems and orchestrates end-to-end business workflows. From auto-approving purchase orders to triggering employee onboarding tasks, operations run seamlessly 24/7.',
+        ar: 'منظومة مبتكرة لربط التطبيقات والأنظمة المختلفة وإدارة مسارات الموافقات الذكية، تضمن استمرار العمليات بدقة عالية على مدار الساعة.'
+      },
+      keyFeatures: [
+        { en: 'Multi-level conditional approval chains', ar: 'مسارات موافقات واعتمادات متعددة المستويات وشروط مخصصة' },
+        { en: 'Zero data entry errors with automated data pipelines', ar: 'معالجة آلية للبيانات والقضاء التام على أخطاء الإدخال' },
+        { en: 'Automated notification hooks via WhatsApp, SMS, & Email', ar: 'تنبيهات تلقائية عبر واتساب والرسائل والبريد الإلكتروني' },
+        { en: 'Open REST API integration for third-party tools', ar: 'ربط مباشر عبر واجهات برمجة التطبيقات (API) مع كافة الأنظمة' }
+      ],
+      modules: [
+        {
+          title: { en: 'Smart Approval Engine', ar: 'محرك الاعتمادات الذكي' },
+          description: { en: 'Route financial and administrative requests based on amounts, departments, and delegation rules.', ar: 'توجيه طلبات الصرف والإجازات والمشتريات آلياً وفق الصلاحيات والمبالغ المعتمدة.' },
+          icon: 'check'
+        },
+        {
+          title: { en: 'System Integration Connector', ar: 'موصل ربط وتكامل الأنظمة' },
+          description: { en: 'Synchronize data between CRM, ERP, e-commerce, and government portals instantly.', ar: 'مزامنة فورية للبيانات بين المتجر الإلكتروني ونظام ERP وبوابات الجهات الحكومية.' },
+          icon: 'api'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Reduction in Processing Delays', ar: 'تسريع إنجاز المعاملات والموافقات' }, value: '70%' },
+        { label: { en: 'Manual Error Elimination', ar: 'تقليل الأخطاء البشرية والتكرار' }, value: '95%' },
+        { label: { en: 'Team Productivity Gain', ar: 'زيادة إنتاجية فرق العمل' }, value: '2.5x' }
+      ],
+      complianceBadge: { en: 'Compliant with Saudi Digital Transformation Guidelines', ar: 'متوافق مع معايير التحول الرقمي والحوكمة المؤسسية بالمملكة' }
+    },
+    {
+      id: 'auditor',
+      name: 'HUNAIX AUDITOR',
+      badge: { en: 'AUDIT, GOVERNANCE & COMPLIANCE', ar: 'التدقيق والحوكمة والامتثال' },
+      title: { en: 'HUNAIX AUDITOR Suite', ar: 'نظام HUNAIX AUDITOR للحوكمة والامتثال' },
+      subtitle: {
+        en: 'Comprehensive tools for internal audit checklists, risk matrices, and continuous regulatory compliance across KSA.',
+        ar: 'منظومة متخصصة لإدارة عمليات التدقيق الداخلي، مصفوفات المخاطر، وضمان الامتثال التام للأنظمة واللوائح السعودية.'
+      },
+      tagline: { en: 'Complete Compliance & Risk Governance', ar: 'حوكمة وامتثال شامل لأعمالك' },
+      category: 'governance',
+      categoryName: { en: 'Audit & Governance', ar: 'التدقيق والحوكمة' },
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+      color: '#334155',
+      gradient: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)',
+      overview: {
+        en: 'HUNAIX AUDITOR empowers compliance officers and internal auditors to track procedural conformity, log corporate risks, verify statutory filings, and generate audit-ready documentation.',
+        ar: 'حلول متقدمة لمسؤولي الامتثال والمدققين الداخليين لمتابعة سلامة الإجراءات ومطابقتها للأنظمة واللوائح والتحقق من الالتزامات الرسمية.'
+      },
+      keyFeatures: [
+        { en: 'Pre-loaded Saudi regulatory compliance frameworks', ar: 'أطر وقوائم مراجعة مسبقة الإعداد للأنظمة والمعايير السعودية' },
+        { en: 'Comprehensive immutable audit log trail', ar: 'سجل تدقيق وحركات غير قابل للتعديل لكافة العمليات' },
+        { en: 'Dynamic risk matrix and corrective action plans', ar: 'مصفوفة مخاطر ديناميكية وخطط إجراءات تصحيحية موثقة' },
+        { en: 'Automated executive compliance scorecards', ar: 'بطاقات قياس ومؤشرات امتثال دورية للإدارة ومجلس الإدارة' }
+      ],
+      modules: [
+        {
+          title: { en: 'Regulatory Checklist Hub', ar: 'مركز قوائم المراجعة والامتثال' },
+          description: { en: 'Periodic verification of licenses, tax filings, labor ratios, and corporate governance.', ar: 'فحص دوري لسريان الرخص، الإقرارات الضريبية، نسب التوطين، ومتطلبات الحوكمة.' },
+          icon: 'checklist'
+        },
+        {
+          title: { en: 'Risk & Incident Registry', ar: 'سجل المخاطر والحوادث التشغيلية' },
+          description: { en: 'Document operational vulnerabilities with severity rankings and assign owners to mitigations.', ar: 'توثيق المخاطر التشغيلية والمالية مع تصنيف درجات الخطورة وإسناد المعالجات.' },
+          icon: 'risk'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Audit Readiness Level', ar: 'جاهزية المنشأة لعمليات التدقيق' }, value: '100%' },
+        { label: { en: 'Regulatory Penalty Risk', ar: 'تجنب الغرامات والمخالفات النظامية' }, value: '0%' },
+        { label: { en: 'Governance Efficiency', ar: 'رفع كفاءة الحوكمة والمتابعة' }, value: '4x' }
+      ],
+      complianceBadge: { en: 'Full Alignment with Saudi Corporate Law & PDPL', ar: 'مطابقة تامة لنظام الشركات السعودي ونظام حماية البيانات الشخصية' }
+    },
+    {
+      id: 'social',
+      name: 'HUNAIX SOCIAL',
+      badge: { en: 'UNIFIED DIGITAL MARKETING', ar: 'إدارة التواصل والتسويق' },
+      title: { en: 'HUNAIX SOCIAL Suite', ar: 'منصة HUNAIX SOCIAL لإدارة الحضور الرقمي' },
+      subtitle: {
+        en: 'All-in-one social media publishing, community inbox, ad performance analytics, and brand listening.',
+        ar: 'منصة موحدة لجدولة المحتوى، إدارة محادثات العملاء، تحليل أداء الحملات الإعلانية وتنمية التفاعل الرقمي.'
+      },
+      tagline: { en: 'Supercharge Your Digital Growth', ar: 'مضاعفة وصول وتفاعل علامتك التجارية' },
+      category: 'marketing',
+      categoryName: { en: 'Social & Marketing', ar: 'التسويق والتواصل' },
+      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
+      color: '#2563EB',
+      gradient: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+      overview: {
+        en: 'HUNAIX SOCIAL helps enterprise marketing teams schedule and distribute content across X (Twitter), LinkedIn, Instagram, TikTok, and Snapchat, while managing incoming messages from a single shared inbox.',
+        ar: 'منصة متكاملة تمكن فرق التسويق من جدولة ونشر المحتوى على منصات إكس، لينكد إن، إنستغرام، تيك توك، وسناب شات، مع الرد السريع على الرسائل من صندوق وارد موحد.'
+      },
+      keyFeatures: [
+        { en: 'Multi-account visual calendar publishing', ar: 'تقويم بصري ذكي لجدولة النشر عبر كافة الحسابات والمنصات' },
+        { en: 'Unified social inbox and CRM lead capture', ar: 'صندوق وارد موحد لاستقبال والرد على المحادثات وجمع بيانات العملاء' },
+        { en: 'Real-time campaign ROI and engagement tracking', ar: 'تتبع لحظي لتفاعل الجمهور والعائد على الإنفاق الإعلاني (ROAS)' },
+        { en: 'Audience demographics and sentiment analysis', ar: 'تحليل دقيق لخصائص المتابعين وانطباعات الجمهور عن العلامة' }
+      ],
+      modules: [
+        {
+          title: { en: 'Publishing & Content Scheduler', ar: 'جدولة ونشر المحتوى الذكي' },
+          description: { en: 'Visual media calendar with approval queues and best-time-to-post algorithms.', ar: 'تقويم مرئي لإدارة المحتوى مع مسار اعتماد المواد وأفضل أوقات النشر.' },
+          icon: 'calendar'
+        },
+        {
+          title: { en: 'Unified Social Inbox', ar: 'صندوق المحادثات والرد السريع' },
+          description: { en: 'Consolidated customer messages, automated greetings, and ticket assignment.', ar: 'تجميع رسائل وتعليقات كافة المنصات مع قوالب ردود جاهزة وتعيين المحادثات للفريق.' },
+          icon: 'inbox'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Growth in Social Reach', ar: 'مضاعفة الوصول والتفاعل الرقمي' }, value: '250%' },
+        { label: { en: 'Faster Response Time', ar: 'تسريع زمن الرد على استفسارات العملاء' }, value: '<5min' },
+        { label: { en: 'Marketing Time Saved', ar: 'توفير وقت إدارة حسابات التواصل' }, value: '60%' }
+      ],
+      complianceBadge: { en: 'Official API Partner Integrations', ar: 'ربط رسمي ومعتمد عبر واجهات برمجة التطبيقات للمنصات العالمية' }
+    },
+    {
+      id: 'crm',
+      name: 'HUNAIX CRM',
+      badge: { en: 'SALES PIPELINE & CLIENTS', ar: 'إدارة علاقات العملاء والمبيعات' },
+      title: { en: 'HUNAIX CRM Platform', ar: 'نظام HUNAIX CRM لإدارة المبيعات والعملاء' },
+      subtitle: {
+        en: 'Capture leads, track pipeline stages, generate instant digital quotes, and nurture long-term client relationships.',
+        ar: 'إدارة متكاملة لفرص المبيعات والعملاء المحتملين، وإصدار عروض الأسعار والعقود الرقمية ومتابعة تحصيل الدفعات.'
+      },
+      tagline: { en: 'Accelerate Sales & Retain Clients', ar: 'تسريع دورة المبيعات وتنمية ولاء العملاء' },
+      category: 'crm',
+      categoryName: { en: 'CRM & Sales', ar: 'المبيعات والعملاء' },
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+      color: '#059669',
+      gradient: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+      overview: {
+        en: 'HUNAIX CRM helps sales teams track deals from first touchpoint to contract signing. It provides automated follow-up reminders, quotation generators with VAT calculations, and comprehensive sales rep performance tracking.',
+        ar: 'نظام صمم خصيصاً لمساعدة فرق المبيعات على تتبع الصفقات، إصدار عروض الأسعار المتوافقة مع الضريبة، وإدارة عقود العملاء وتذكيرات المتابعة الآلية.'
+      },
+      keyFeatures: [
+        { en: 'Visual Kanban pipeline deal management', ar: 'إدارة بصرية لمراحل الصفقات بأسلوب كانبان التفاعلي' },
+        { en: 'Instant VAT-compliant digital quotations', ar: 'توليد فوري لعروض الأسعار والعقود الرقمية بضريبة القيمة المضافة' },
+        { en: 'Automated follow-up reminders and activity logs', ar: 'تذكيرات آلية بمواعيد المتابعة وتوثيق تاريخ التواصل مع العميل' },
+        { en: 'Sales target tracking and commission calculation', ar: 'متابعة مستهدفات المبيعات الشهرية وحساب العمولات تلقائياً' }
+      ],
+      modules: [
+        {
+          title: { en: 'Deals & Opportunities Pipeline', ar: 'مسار الصفقات والفرص البيعية' },
+          description: { en: 'Move deals across customizable stages from lead qualification to closed-won.', ar: 'نقل الصفقات بسلاسة عبر مراحل مخصصة من أول تواصل حتى إتمام الصفقة.' },
+          icon: 'pipeline'
+        },
+        {
+          title: { en: 'Digital Quotes & Contracts', ar: 'عروض الأسعار والعقود الرقمية' },
+          description: { en: 'Create professional branded quotes with PDF export and digital signature support.', ar: 'إصدار عروض أسعار احترافية بهوية المنشأة وتصديرها بصيغة PDF قابلة للتوقيع.' },
+          icon: 'contract'
+        }
+      ],
+      impactStats: [
+        { label: { en: 'Sales Deal Conversion Rate', ar: 'زيادة نسبة إغلاق الصفقات البيعية' }, value: '+35%' },
+        { label: { en: 'Faster Quote Delivery', ar: 'سرعة إرسال عروض الأسعار للعملاء' }, value: '10x' },
+        { label: { en: 'Customer Retention Rate', ar: 'رفع نسبة استبقاء وولاء العملاء' }, value: '92%' }
+      ],
+      complianceBadge: { en: 'Seamless Integration with HUNAIX ERP & Saudi VAT', ar: 'ربط مباشر مع نظام HUNAIX ERP وحسابات ضريبة القيمة المضافة' }
+    }
+  ];
+
+  getProjectById(id: string): ProjectDetail | undefined {
+    return this.projectsCatalog.find(p => p.id === id);
+  }
 }

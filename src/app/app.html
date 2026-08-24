@@ -1,41 +1,17 @@
 <!-- ==========================================================================
-     HUNAIX ENTERPRISE PLATFORM - FEATURE-BASED ARCHITECTURE
-     Clean Layout (Header / Footer) & Independent Feature Components
+     HUNAIX ENTERPRISE PLATFORM - MULTI-PAGE ROUTED ARCHITECTURE
+     Clean Global Shell (Header / Footer) & Dynamic Routed Page Views
      ========================================================================== -->
 
-<div class="hunaix-wrapper min-h-screen transition-colors duration-300 relative overflow-hidden"
+<div class="hunaix-wrapper min-h-screen transition-colors duration-300 relative overflow-hidden flex flex-col justify-between"
   [class.dark]="themeService.isDark()" [attr.dir]="translationService.direction()">
 
   <!-- 1. Header Layout -->
   <app-header />
 
-  <!-- 2. Main Feature Flow -->
-  <main>
-    <!-- Hero Section -->
-    <app-hero />
-
-    <!-- About & Vision Section -->
-    <app-about />
-
-    <!-- Services Carousel Slider -->
-    <app-services />
-
-    <!-- Methodology & Workflow Section -->
-    <app-methodology />
-
-    <!-- Digital Solutions SaaS Suite -->
-    <app-solutions />
-
-    <!-- ROI & Cost Savings Calculator -->
-    <app-calculator />
-
-    <!-- Testimonials & Client Reviews -->
-
-    <!-- Call to Action Banner -->
-    <!-- <app-cta-banner /> -->
-
-    <!-- Frequently Asked Questions -->
-    <app-faqs />
+  <!-- 2. Dynamic Routed Page View -->
+  <main class="flex-1">
+    <router-outlet />
   </main>
 
   <!-- 3. Footer Layout -->

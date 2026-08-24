@@ -1,19 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ThemeService } from '../../core/services/theme.service';
 import { TranslationService } from '../../core/services/translation.service';
 import { ContentService } from '../../core/services/content.service';
 import { LocalizedString } from '../../core/models/hunaix.models';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-services-page',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './footer.component.html'
+  templateUrl: './services-page.component.html'
 })
-export class FooterComponent {
-  readonly themeService = inject(ThemeService);
+export class ServicesPageComponent {
   readonly translationService = inject(TranslationService);
   readonly contentService = inject(ContentService);
 
@@ -23,9 +21,5 @@ export class FooterComponent {
 
   localize(val: LocalizedString): string {
     return this.translationService.isArabic() ? val.ar : val.en;
-  }
-
-  toggleLanguage(): void {
-    this.translationService.toggleLanguage();
   }
 }

@@ -1,0 +1,344 @@
+<!-- ==================== INDIVIDUAL PROJECT / PRODUCT DETAIL PAGE ==================== -->
+@if (project(); as p) {
+  <div class="py-10 sm:py-16 bg-[var(--bg-page)] relative overflow-hidden">
+    
+    <!-- Ambient Background Glow with Project Color -->
+    <div
+      class="absolute top-0 right-1/4 w-[700px] h-[500px] rounded-full blur-3xl opacity-15 pointer-events-none"
+      [style.background]="p.color">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16 sm:space-y-24 relative z-10">
+
+      <!-- 1. Hero Header & Breadcrumbs -->
+      <div class="space-y-6 max-w-4xl mx-auto text-center pt-2">
+        
+        <!-- Breadcrumbs Navigation -->
+        <div class="flex items-center justify-center gap-2 text-xs font-bold text-[var(--text-muted)]">
+          <a routerLink="/" class="hover:text-[var(--color-primary)] transition-colors">{{ translationService.isArabic() ? 'الرئيسية' : 'Home' }}</a>
+          <span>/</span>
+          <a routerLink="/projects" class="hover:text-[var(--color-primary)] transition-colors">{{ translationService.isArabic() ? 'مشاريعنا ومنتجاتنا' : 'Projects' }}</a>
+          <span>/</span>
+          <span [style.color]="p.color" class="font-black">{{ p.name }}</span>
+        </div>
+
+        <!-- Project Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-white text-xs font-black uppercase tracking-wider shadow-sm"
+          [style.background]="p.color">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          {{ localize(p.badge) }}
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--text-primary)] tracking-tight leading-[1.15]">
+          {{ localize(p.title) }}
+        </h1>
+
+        <!-- Tagline & Subtitle -->
+        <p class="text-base sm:text-lg lg:text-xl text-[var(--text-secondary)] leading-[1.8] font-medium max-w-3xl mx-auto">
+          {{ localize(p.subtitle) }}
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <button (click)="openDemoModal()"
+            class="px-8 py-4 rounded-2xl text-white font-black text-sm shadow-xl transition-all transform hover:scale-105 cursor-pointer flex items-center gap-2.5"
+            [style.background]="p.color">
+            <span>{{ translationService.isArabic() ? 'طلب تجربة حية للنظام' : 'Request Live Demo' }}</span>
+            <svg class="w-4 h-4 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+
+          <a href="#modules"
+            class="px-7 py-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color-card)] text-[var(--text-primary)] font-black text-sm shadow-xs hover:border-[var(--color-primary)] transition-all">
+            {{ translationService.isArabic() ? 'استعراض ميزات النظام' : 'Explore Capabilities' }}
+          </a>
+        </div>
+
+        <!-- Compliance Pill -->
+        <div class="pt-2">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20">
+            <span>✓</span>
+            {{ localize(p.complianceBadge) }}
+          </span>
+        </div>
+
+      </div>
+
+      <!-- 2. High-Res Visual Dashboard Mockup Showcase -->
+      <div class="relative max-w-5xl mx-auto">
+        <div
+          class="rounded-3xl sm:rounded-[36px] bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] p-3 sm:p-5 shadow-2xl shadow-blue-600/10 overflow-hidden relative group">
+          
+          <!-- Mockup Header Bar -->
+          <div class="flex items-center justify-between px-3 py-2 border-b border-[var(--border-color-card)] mb-3 bg-slate-100/50 dark:bg-slate-800/50 rounded-xl">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-400"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-[11px] font-mono text-[var(--text-muted)] font-bold">
+              https://cloud.hunaix.com/app/{{ p.id }}
+            </div>
+            <div class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500">
+              Live Secure
+            </div>
+          </div>
+
+          <!-- Main Dashboard Image / Screenshot -->
+          <div class="rounded-2xl overflow-hidden bg-slate-900 relative">
+            <img [src]="p.previewImage || p.image" [alt]="p.name"
+              class="w-full h-auto max-h-[550px] object-cover object-top transform group-hover:scale-101 transition-transform duration-700" />
+            
+            <div class="absolute bottom-4 right-4 rtl:right-auto rtl:left-4 bg-black/75 backdrop-blur-md px-4 py-2 rounded-xl text-white text-xs font-black flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full animate-ping" [style.background]="p.color"></span>
+              {{ p.name }} Active Environment
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. Key Impact Statistics -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        @for (stat of p.impactStats; track stat.value) {
+          <div class="rounded-3xl p-6 sm:p-7 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-md text-center space-y-2 group hover:-translate-y-1 transition-all">
+            <div class="text-3xl sm:text-4xl font-black font-mono" [style.color]="p.color">
+              {{ stat.value }}
+            </div>
+            <div class="text-xs sm:text-sm text-[var(--text-secondary)] font-bold">
+              {{ localize(stat.label) }}
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- 4. Deep-Dive Overview & Description -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto">
+        <div class="lg:col-span-6 space-y-5">
+          <div class="text-xs font-black uppercase tracking-widest" [style.color]="p.color">
+            {{ translationService.isArabic() ? 'نظرة عامة على النظام' : 'SYSTEM OVERVIEW' }}
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-black text-[var(--text-primary)] leading-snug">
+            {{ localize(p.tagline) }}
+          </h2>
+
+          <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium">
+            {{ localize(p.overview) }}
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 space-y-3.5">
+          <div class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mb-2">
+            {{ translationService.isArabic() ? 'أبرز المزايا والقدرات التشغيلية' : 'KEY CAPABILITIES' }}
+          </div>
+
+          @for (feat of p.keyFeatures; track feat.en) {
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs">
+              <span class="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0 mt-0.5"
+                [style.background]="p.color">
+                ✓
+              </span>
+              <span class="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-snug">
+                {{ localize(feat) }}
+              </span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- 5. System Modules Grid -->
+      <div id="modules" class="space-y-10">
+        <div class="text-center space-y-3 max-w-2xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase">
+            {{ translationService.isArabic() ? 'أركان ووحدات النظام' : 'SYSTEM MODULES' }}
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-[var(--text-primary)]">
+            {{ translationService.isArabic() ? 'وحدات تشغيل متكاملة تغطي كل التفاصيل' : 'Comprehensive Integrated Operational Modules' }}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (mod of p.modules; track mod.title.en) {
+            <div
+              class="rounded-3xl p-7 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-md hover:shadow-xl transition-all space-y-4 group hover:-translate-y-1"
+              [style.border-top]="'3px solid ' + p.color">
+              
+              <div class="w-11 h-11 rounded-2xl flex items-center justify-center text-white text-lg font-bold shadow-sm"
+                [style.background]="p.color">
+                ★
+              </div>
+
+              <h3 class="text-lg font-black text-[var(--text-primary)] leading-snug">
+                {{ localize(mod.title) }}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-[1.8] font-medium">
+                {{ localize(mod.description) }}
+              </p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- 6. Bottom Demo Request CTA Strip -->
+      <div
+        class="rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl"
+        [style.background]="p.gradient">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3.5 py-1.5 rounded-full inline-block">
+              {{ translationService.isArabic() ? 'تجربة حية وعرض توضيحي' : 'Live Interactive Demo' }}
+            </span>
+            <h3 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+              {{ translationService.isArabic() ? 'احصل على عرض توضيحي مخصص لـ ' + p.name : 'Request a Tailored Demo for ' + p.name }}
+            </h3>
+            <p class="text-sm sm:text-base text-white/90 leading-[1.8]">
+              {{ translationService.isArabic() ? 
+                'سيتواصل معك مستشار الحلول الرقمية لتقديم عرض حي لكيفية ربط وتشغيل هذا النظام في منشأتك.' :
+                'Our solution architects will guide you through a live walkthrough tailored to your business operations.'
+              }}
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex justify-center lg:justify-end">
+            <button (click)="openDemoModal()"
+              class="px-8 py-4 rounded-2xl bg-white font-black text-sm shadow-xl transition-all transform hover:scale-105 cursor-pointer text-center"
+              [style.color]="p.color">
+              {{ translationService.isArabic() ? 'حجز موعد العرض الحي' : 'Book Live Walkthrough' }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Other Related Systems -->
+      <div class="space-y-8 pt-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
+            {{ translationService.isArabic() ? 'أنظمة وحلول رقمية أخرى' : 'Explore Other Solutions' }}
+          </h3>
+          <a routerLink="/projects" class="text-xs font-bold text-[var(--color-primary)] hover:underline">
+            {{ translationService.isArabic() ? 'عرض كافة المنتجات ←' : 'View All Products →' }}
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          @for (item of otherProjects; track item.id) {
+            <a [routerLink]="['/projects', item.id]"
+              class="rounded-3xl p-6 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs hover:shadow-lg transition-all group flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <span class="text-[10px] font-black uppercase text-white px-2.5 py-1 rounded-full" [style.background]="item.color">
+                  {{ item.name }}
+                </span>
+                <h4 class="text-base font-black text-[var(--text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
+                  {{ localize(item.title) }}
+                </h4>
+                <p class="text-xs text-[var(--text-secondary)] line-clamp-2">
+                  {{ localize(item.subtitle) }}
+                </p>
+              </div>
+              <div class="text-xs font-black text-[var(--color-primary)] flex items-center gap-1">
+                <span>{{ translationService.isArabic() ? 'استكشف النظام' : 'Discover System' }}</span>
+                <span>→</span>
+              </div>
+            </a>
+          }
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Live Demo Request Modal -->
+    @if (isDemoModalOpen()) {
+      <div class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+          class="w-full max-w-lg rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] p-6 sm:p-8 shadow-2xl space-y-6 relative animate-in fade-in zoom-in-95 duration-200">
+          
+          <!-- Modal Close Button -->
+          <button (click)="closeDemoModal()"
+            class="absolute top-5 left-5 rtl:left-auto rtl:right-5 w-8 h-8 rounded-full bg-[var(--bg-card-alt)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] flex items-center justify-center cursor-pointer">
+            ✕
+          </button>
+
+          <!-- Modal Header -->
+          <div class="space-y-2 text-center pt-2">
+            <span class="text-xs font-black px-3 py-1 rounded-full text-white" [style.background]="p.color">
+              {{ p.name }}
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
+              {{ translationService.isArabic() ? 'طلب تجربة حية للنظام' : 'Request Live Interactive Demo' }}
+            </h3>
+            <p class="text-xs text-[var(--text-secondary)]">
+              {{ translationService.isArabic() ? 'أدخل بيانات منشأتك وسيتواصل معك مستشار الأنظمة لترتيب جلسة العرض.' : 'Enter your details and our product specialist will arrange a live session.' }}
+            </p>
+          </div>
+
+          @if (!isFormSubmitted()) {
+            <!-- Demo Booking Form -->
+            <form (submit)="submitDemoRequest($event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-[var(--text-primary)] mb-1">
+                  {{ translationService.isArabic() ? 'الاسم الكامل *' : 'Full Name *' }}
+                </label>
+                <input type="text" required [(ngModel)]="demoForm.fullName" name="fullName"
+                  placeholder="محمد السبيعي"
+                  class="w-full px-4 py-3 rounded-xl bg-[var(--bg-card-alt)] border border-[var(--border-color)] text-xs sm:text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--color-primary)]" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-[var(--text-primary)] mb-1">
+                    {{ translationService.isArabic() ? 'اسم الشركة *' : 'Company Name *' }}
+                  </label>
+                  <input type="text" [(ngModel)]="demoForm.companyName" name="companyName"
+                    placeholder="شركة آفاق التقنية"
+                    class="w-full px-4 py-3 rounded-xl bg-[var(--bg-card-alt)] border border-[var(--border-color)] text-xs sm:text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--color-primary)]" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-[var(--text-primary)] mb-1">
+                    {{ translationService.isArabic() ? 'رقم الجوال *' : 'Phone Number *' }}
+                  </label>
+                  <input type="tel" required [(ngModel)]="demoForm.phone" name="phone"
+                    placeholder="050 123 4567"
+                    class="w-full px-4 py-3 rounded-xl bg-[var(--bg-card-alt)] border border-[var(--border-color)] text-xs sm:text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--color-primary)]" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-[var(--text-primary)] mb-1">
+                  {{ translationService.isArabic() ? 'البريد الإلكتروني' : 'Work Email' }}
+                </label>
+                <input type="email" [(ngModel)]="demoForm.email" name="email"
+                  placeholder="info@company.com"
+                  class="w-full px-4 py-3 rounded-xl bg-[var(--bg-card-alt)] border border-[var(--border-color)] text-xs sm:text-sm text-[var(--text-primary)] focus:outline-none focus:border-[var(--color-primary)]" />
+              </div>
+
+              <button type="submit"
+                class="w-full py-3.5 rounded-xl text-white font-black text-sm shadow-xl transition-all transform hover:scale-102 cursor-pointer mt-2"
+                [style.background]="p.color">
+                {{ translationService.isArabic() ? 'تأكيد حجز موعد العرض' : 'Confirm Demo Request' }}
+              </button>
+            </form>
+          } @else {
+            <!-- Success Confirmation Screen -->
+            <div class="py-8 text-center space-y-4">
+              <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 mx-auto flex items-center justify-center text-3xl font-black">
+                ✓
+              </div>
+              <h4 class="text-xl font-black text-[var(--text-primary)]">
+                {{ translationService.isArabic() ? 'تم استلام طلبك بنجاح!' : 'Demo Request Received!' }}
+              </h4>
+              <p class="text-xs text-[var(--text-secondary)] leading-relaxed">
+                {{ translationService.isArabic() ? 'شكراً لاهتمامك بنظام ' + p.name + '، سيتواصل معك مستشارنا خلال دقائق.' : 'Thank you for your interest in ' + p.name + '. Our team will reach out shortly.' }}
+              </p>
+            </div>
+          }
+
+        </div>
+      </div>
+    }
+
+  </div>
+}

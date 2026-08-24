@@ -1,0 +1,190 @@
+<!-- ==================== DEDICATED ABOUT US PAGE ==================== -->
+<div class="py-12 sm:py-16 bg-[var(--bg-page)] relative overflow-hidden">
+  
+  <!-- Subtle Ambient Glow -->
+  <div class="absolute top-0 right-1/4 w-[600px] h-[400px] bg-blue-600/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16 sm:space-y-24 relative z-10">
+
+    <!-- 1. Page Hero Banner -->
+    <div class="text-center space-y-5 max-w-4xl mx-auto pt-4">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
+        {{ t('about.badge') }}
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--text-primary)] tracking-tight leading-[1.2]">
+        {{ translationService.isArabic() ? 'شريك أعمالك المتكامل لإدارة وتشغيل وتنمية الأعمال' : 'Your Integrated Partner for Business Management & Growth' }}
+      </h1>
+
+      <p class="text-base sm:text-lg lg:text-xl text-[var(--text-secondary)] leading-[1.85] font-medium max-w-3xl mx-auto">
+        {{ t('about.description') }}
+      </p>
+
+      <!-- Breadcrumbs -->
+      <div class="flex items-center justify-center gap-2 text-xs font-bold text-[var(--text-muted)] pt-2">
+        <a routerLink="/" class="hover:text-[var(--color-primary)] transition-colors">{{ translationService.isArabic() ? 'الرئيسية' : 'Home' }}</a>
+        <span>/</span>
+        <span class="text-[var(--color-primary)]">{{ t('about.badge') }}</span>
+      </div>
+    </div>
+
+    <!-- 2. Who We Are & Story Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Visual Showcase with Geometry -->
+      <div class="lg:col-span-5 relative flex items-center justify-center">
+        <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-[44px] bg-gradient-to-tr from-[#0F4FCD] to-[#156FFF] transform rotate-45 shadow-2xl shadow-blue-600/30 flex items-center justify-center p-6 border-4 border-white/20">
+          <div class="transform -rotate-45 text-center text-white space-y-3">
+            <img style="width: 65px; height: 65px;"
+              src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+              class="mx-auto"
+              alt="HUNAIX Logo">
+            <div class="font-black text-xl tracking-tight">HUNAIX</div>
+            <div class="text-[11px] font-mono tracking-widest text-blue-100 uppercase">Enterprise Platform</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Description -->
+      <div class="lg:col-span-7 space-y-6">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--text-primary)] leading-tight">
+          {{ translationService.isArabic() ? 'منظومة واحدة تغطي كافة احتياجات منشأتك' : 'One Integrated Ecosystem Covering All Enterprise Needs' }}
+        </h2>
+
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium">
+          {{ translationService.isArabic() ? 
+            'تأسست HUNAIX لتكون الشريك الاستراتيجي والتشغيلي الموثوق للشركات في المملكة العربية السعودية. لا نكتفي بتقديم استشارات منفصلة أو برمجيات جاهزة، بل نوفر منظومة تشغيل شاملة تجمع بين الخدمات الحكومية وتأسيس الشركات، الإدارة المالية والمحاسبية المعتمدة، بناء وتطوير الأنظمة السحابية المخصصة، واستراتيجيات التسويق وبناء الهوية التجارية.' :
+            'HUNAIX was established to be the trusted strategic and operational partner for enterprises across the Kingdom of Saudi Arabia. We combine government incorporation services, accredited finance and accounting management, custom cloud systems development, and digital marketing strategies under one roof.'
+          }}
+        </p>
+
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium">
+          {{ translationService.isArabic() ? 
+            'هدفنا هو تمكين المنشآت ورواد الأعمال من التركيز على نشاطهم الأساسي وتوسيع حصتهم السوقية، بينما تتولى HUNAIX إدارة كافة العمليات التشغيلية والتقنية والامتثال للأنظمة بدقة وسرعة متناهية.' :
+            'Our mission is to enable business owners and leaders to focus on core innovation and market expansion, while HUNAIX manages end-to-end operations, digital systems, and regulatory compliance with precision.'
+          }}
+        </p>
+
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-[var(--border-color-card)]">
+          <div class="p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs text-center">
+            <div class="text-2xl sm:text-3xl font-black text-[var(--color-primary)]">120+</div>
+            <div class="text-xs text-[var(--text-secondary)] font-bold mt-1">{{ t('about.stat3Label') }}</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs text-center">
+            <div class="text-2xl sm:text-3xl font-black text-emerald-500">100%</div>
+            <div class="text-xs text-[var(--text-secondary)] font-bold mt-1">{{ translationService.isArabic() ? 'امتثال سعودي' : 'Saudi Compliance' }}</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs text-center">
+            <div class="text-2xl sm:text-3xl font-black text-purple-500">3</div>
+            <div class="text-xs text-[var(--text-secondary)] font-bold mt-1">{{ translationService.isArabic() ? 'فروع رئيسية بالمملكة' : 'Regional Offices' }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. Vision & Mission Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Vision Card -->
+      <div
+        class="rounded-3xl p-8 sm:p-10 bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] shadow-xl shadow-blue-500/5 relative overflow-hidden group hover:border-[var(--color-primary)] transition-all">
+        <div class="w-14 h-14 rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)] flex items-center justify-center text-2xl font-black mb-6">
+          👁️
+        </div>
+        <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+          {{ t('about.visionTitle') }}
+        </h3>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium">
+          {{ t('about.visionText') }}
+        </p>
+      </div>
+
+      <!-- Mission Card -->
+      <div
+        class="rounded-3xl p-8 sm:p-10 bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] shadow-xl shadow-blue-500/5 relative overflow-hidden group hover:border-[var(--color-primary)] transition-all">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-2xl font-black mb-6">
+          🎯
+        </div>
+        <h3 class="text-2xl font-black text-[var(--text-primary)] mb-3">
+          {{ t('about.missionTitle') }}
+        </h3>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.85] font-medium">
+          {{ t('about.missionText') }}
+        </p>
+      </div>
+    </div>
+
+    <!-- 4. Methodology Section (4 Stages from Profile) -->
+    <div class="space-y-10">
+      <div class="text-center space-y-3 max-w-2xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase">
+          {{ t('expertise.badge') }}
+        </div>
+        <h2 class="text-2xl sm:text-4xl font-black text-[var(--text-primary)]">
+          {{ t('expertise.title') }}
+        </h2>
+        <p class="text-sm sm:text-base text-[var(--text-secondary)]">
+          {{ t('expertise.description') }}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (step of contentService.methodologySteps; track step.id) {
+          <div
+            class="rounded-3xl p-7 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-md hover:shadow-xl transition-all flex flex-col justify-between space-y-6 group hover:-translate-y-1"
+            [style.border-top]="'4px solid ' + step.color">
+            
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-black font-mono" [style.color]="step.color">{{ step.stepNumber }}</span>
+                <span class="text-2xl">{{ step.icon }}</span>
+              </div>
+
+              <h3 class="text-lg font-black text-[var(--text-primary)] leading-snug">
+                {{ localize(step.title) }}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-[1.75] font-medium">
+                {{ localize(step.description) }}
+              </p>
+            </div>
+
+            <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-[var(--text-muted)]">
+              {{ step.enSubTitle }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- 5. What Sets Us Apart / Our Promise -->
+    <div class="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#0F4FCD] to-[#156FFF] text-white relative overflow-hidden shadow-2xl shadow-blue-600/20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="text-xs font-black tracking-widest uppercase bg-white/20 px-3.5 py-1.5 rounded-full inline-block">
+            {{ translationService.isArabic() ? 'ميثاق الجودة والالتزام' : 'Our Quality Promise' }}
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+            {{ translationService.isArabic() ? 'نعدك بسرعة في التنفيذ، جودة في المخرجات، وشراكة طويلة الأمد' : 'We Promise Execution Speed, Output Quality, and Lasting Partnership' }}
+          </h3>
+          <p class="text-sm sm:text-base text-blue-100 leading-[1.8]">
+            {{ translationService.isArabic() ? 
+              'في HUNAIX، نجاحنا يقاس بنجاح شركائنا ونمو أعمالهم المستدام داخل السوق السعودي.' :
+              'At HUNAIX, our success is measured by the growth and sustained excellence of our partner enterprises.'
+            }}
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+          <a routerLink="/contact"
+            class="px-8 py-4 rounded-2xl bg-white text-[#0F4FCD] font-black text-sm shadow-xl hover:bg-blue-50 transition-all transform hover:scale-105 text-center">
+            {{ t('cta.btn') }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,224 @@
+<!-- ==================== DEDICATED PROJECTS & PRODUCTS CATALOG PAGE ==================== -->
+<div class="py-12 sm:py-16 bg-[var(--bg-page)] relative overflow-hidden">
+  
+  <!-- Ambient Background Glow -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-16 relative z-10">
+
+    <!-- 1. Page Header -->
+    <div class="text-center space-y-4 max-w-3xl mx-auto pt-4">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
+        {{ translationService.isArabic() ? 'منتجاتنا وحلولنا الرقمية' : 'PRODUCTS & DIGITAL SUITE' }}
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black text-[var(--text-primary)] tracking-tight leading-[1.2]">
+        {{ translationService.isArabic() ? 'منظومة منتجات HUNAIX المتكاملة' : 'HUNAIX Integrated Products Suite' }}
+      </h1>
+
+      <p class="text-base sm:text-lg text-[var(--text-secondary)] leading-[1.85] font-medium">
+        {{ translationService.isArabic() ? 
+          'أنظمة ومنصات سحابية ذكية مصممة لتسريع وإدارة وتطوير عمليات الشركات في المملكة العربية السعودية مع الامتثال الكامل للأنظمة.' :
+          'Intelligent enterprise platforms engineered to automate, manage, and scale business operations across KSA.'
+        }}
+      </p>
+
+      <!-- Breadcrumbs -->
+      <div class="flex items-center justify-center gap-2 text-xs font-bold text-[var(--text-muted)] pt-1">
+        <a routerLink="/" class="hover:text-[var(--color-primary)] transition-colors">{{ translationService.isArabic() ? 'الرئيسية' : 'Home' }}</a>
+        <span>/</span>
+        <span class="text-[var(--color-primary)]">{{ translationService.isArabic() ? 'مشاريعنا ومنتجاتنا' : 'Our Projects' }}</span>
+      </div>
+    </div>
+
+    <!-- 2. Category Filter Tabs -->
+    <div class="flex items-center justify-center flex-wrap gap-2.5 sm:gap-3 max-w-4xl mx-auto">
+      <button (click)="setCategory('all')"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'all'"
+        [class.text-white]="activeCategory() === 'all'"
+        [class.shadow-md]="activeCategory() === 'all'"
+        [class.shadow-blue-500/25]="activeCategory() === 'all'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'all'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'all'"
+        [class.border]="activeCategory() !== 'all'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'all'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        {{ translationService.isArabic() ? 'جميع المنتجات' : 'All Products' }}
+      </button>
+
+      <button (click)="setCategory('erp')"
+        [class.bg-[#0F4FCD]]="activeCategory() === 'erp'"
+        [class.text-white]="activeCategory() === 'erp'"
+        [class.shadow-md]="activeCategory() === 'erp'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'erp'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'erp'"
+        [class.border]="activeCategory() !== 'erp'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'erp'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX ERP
+      </button>
+
+      <button (click)="setCategory('analytics')"
+        [class.bg-[#D97706]]="activeCategory() === 'analytics'"
+        [class.text-white]="activeCategory() === 'analytics'"
+        [class.shadow-md]="activeCategory() === 'analytics'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'analytics'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'analytics'"
+        [class.border]="activeCategory() !== 'analytics'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'analytics'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX ANALYZER
+      </button>
+
+      <button (click)="setCategory('automation')"
+        [class.bg-[#7C3AED]]="activeCategory() === 'automation'"
+        [class.text-white]="activeCategory() === 'automation'"
+        [class.shadow-md]="activeCategory() === 'automation'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'automation'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'automation'"
+        [class.border]="activeCategory() !== 'automation'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'automation'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX AUTOMATION
+      </button>
+
+      <button (click)="setCategory('governance')"
+        [class.bg-[#334155]]="activeCategory() === 'governance'"
+        [class.text-white]="activeCategory() === 'governance'"
+        [class.shadow-md]="activeCategory() === 'governance'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'governance'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'governance'"
+        [class.border]="activeCategory() !== 'governance'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'governance'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX AUDITOR
+      </button>
+
+      <button (click)="setCategory('marketing')"
+        [class.bg-[#2563EB]]="activeCategory() === 'marketing'"
+        [class.text-white]="activeCategory() === 'marketing'"
+        [class.shadow-md]="activeCategory() === 'marketing'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'marketing'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'marketing'"
+        [class.border]="activeCategory() !== 'marketing'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'marketing'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX SOCIAL
+      </button>
+
+      <button (click)="setCategory('crm')"
+        [class.bg-[#059669]]="activeCategory() === 'crm'"
+        [class.text-white]="activeCategory() === 'crm'"
+        [class.shadow-md]="activeCategory() === 'crm'"
+        [class.bg-[var(--bg-card)]]="activeCategory() !== 'crm'"
+        [class.text-[var(--text-secondary)]]="activeCategory() !== 'crm'"
+        [class.border]="activeCategory() !== 'crm'"
+        [class.border-[var(--border-color-card)]]="activeCategory() !== 'crm'"
+        class="text-xs sm:text-sm font-black px-5 py-2.5 rounded-full transition-all duration-300 cursor-pointer">
+        HUNAIX CRM
+      </button>
+    </div>
+
+    <!-- 3. Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (project of filteredProjects(); track project.id) {
+        <div
+          class="rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color-card)] overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.06)] hover:shadow-[0_25px_50px_-12px_rgba(15,79,205,0.15)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
+          [style.border-top]="'4px solid ' + project.color">
+          
+          <!-- Card Image Thumbnail -->
+          <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+            <img [src]="project.image" [alt]="project.name"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+            <!-- Diamond Mark Badge on image -->
+            <div class="absolute top-4 left-4 rtl:left-auto rtl:right-4 w-9 h-9 rounded-xl bg-white shadow-md transform rotate-45 flex items-center justify-center">
+              <img style="width: 18px; height: 18px;"
+                src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
+                class="transform -rotate-45 brightness-0"
+                alt="HUNAIX Logo">
+            </div>
+
+            <!-- Category Pill -->
+            <div class="absolute bottom-3 left-4 rtl:left-auto rtl:right-4 text-[10px] font-black text-white px-3 py-1 rounded-full bg-black/60 backdrop-blur-md">
+              {{ localize(project.categoryName) }}
+            </div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 sm:p-7 space-y-4 flex-1 flex flex-col justify-between">
+            <div class="space-y-3">
+              <h3 class="text-xl font-black text-[var(--text-primary)] group-hover:text-[var(--color-primary)] transition-colors leading-snug">
+                {{ project.name }}
+              </h3>
+              
+              <p class="text-xs sm:text-sm text-[var(--text-secondary)] leading-[1.8] font-medium line-clamp-3">
+                {{ localize(project.subtitle) }}
+              </p>
+
+              <!-- Feature Highlights -->
+              <div class="space-y-2 pt-2 border-t border-[var(--border-color-card)]">
+                @for (feat of project.keyFeatures.slice(0, 2); track feat.en) {
+                  <div class="flex items-center gap-2 text-xs font-bold text-[var(--text-primary)]">
+                    <span class="w-3.5 h-3.5 rounded-full flex items-center justify-center text-[9px] font-bold text-white flex-shrink-0"
+                      [style.background]="project.color">
+                      ✓
+                    </span>
+                    <span class="line-clamp-1">{{ localize(feat) }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- Card Bottom Action: Link to Detail Page -->
+            <div class="pt-5 border-t border-[var(--border-color-card)] flex items-center justify-between">
+              <a [routerLink]="['/projects', project.id]"
+                class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[var(--color-primary)] group-hover:text-[var(--color-primary-light)] transition-colors">
+                <span>{{ translationService.isArabic() ? 'تفاصيل النظام' : 'View System Details' }}</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"
+                  [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+
+              <span class="w-2 h-2 rounded-full" [style.background]="project.color"></span>
+            </div>
+
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- 4. Custom Enterprise Development Consultation Banner -->
+    <div class="rounded-3xl p-8 sm:p-12 bg-[var(--bg-card)] border-2 border-[var(--color-primary)]/20 shadow-2xl shadow-blue-500/5 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="text-xs font-black tracking-widest uppercase bg-[var(--color-primary-subtle)] text-[var(--color-primary)] px-3.5 py-1.5 rounded-full inline-block">
+            {{ translationService.isArabic() ? 'تطوير أنظمة خاصة' : 'Custom Software Engineering' }}
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-[var(--text-primary)] leading-tight">
+            {{ translationService.isArabic() ? 'هل تحتاج إلى نظام مخصص بالكامل لمتطلبات منشأتك؟' : 'Need a Fully Tailored System Engineered for Your Enterprise?' }}
+          </h3>
+          <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-[1.8] font-medium">
+            {{ translationService.isArabic() ? 
+              'يقوم فريقنا البرمجي بتحليل متطلبات أعمالك (BRD) وبناء تطبيقات وأنظمة سحابية مخصصة بالكامل وفق أعلى معايير الأمان والتكامل.' :
+              'Our software engineering team conducts comprehensive Business Requirement Analysis (BRD) and builds fully custom enterprise platforms.'
+            }}
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+          <a routerLink="/contact"
+            class="px-8 py-4 rounded-2xl bg-[var(--color-primary)] hover:bg-[var(--color-primary-light)] text-white font-black text-sm shadow-xl shadow-blue-500/25 transition-all transform hover:scale-105 text-center">
+            {{ translationService.isArabic() ? 'طلب استشارة برمجية' : 'Request Custom Consultation' }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

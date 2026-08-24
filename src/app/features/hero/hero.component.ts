@@ -3,10 +3,12 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TranslationService } from '../../core/services/translation.service';
 import { Hero3dLogoComponent } from '../../shared/components/hero-3d-logo/hero-3d-logo.component';
 
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, Hero3dLogoComponent],
+  imports: [CommonModule, Hero3dLogoComponent, RouterLink],
   templateUrl: './hero.component.html'
 })
 export class HeroComponent implements OnInit {

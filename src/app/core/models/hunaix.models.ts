@@ -94,3 +94,41 @@ export interface MethodologyStep {
   color: string;
   bgPill: string;
 }
+
+export interface ProjectModule {
+  title: LocalizedString;
+  description: LocalizedString;
+  icon: string;
+}
+
+export interface ProjectDetail {
+  id: string;
+  name: string;
+  badge: LocalizedString;
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  tagline: LocalizedString;
+  category: string;
+  categoryName: LocalizedString;
+  image: string;
+  previewImage?: string;
+  color: string;
+  gradient: string;
+  overview: LocalizedString;
+  keyFeatures: LocalizedString[];
+  modules: ProjectModule[];
+  impactStats: { label: LocalizedString; value: string }[];
+  complianceBadge: LocalizedString;
+}
+
+export interface WhyUsPillar {
+  id: number;
+  badge: LocalizedString;
+  title: LocalizedString;
+  enSubTitle: string;
+  description: LocalizedString;
+  points: LocalizedString[];
+  icon: string;
+  color: string;
+}
+

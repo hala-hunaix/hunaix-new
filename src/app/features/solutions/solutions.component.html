@@ -28,8 +28,8 @@
       <div class="flex flex-col gap-5 lg:gap-6">
         
         <!-- 1. Tall Vertical Product Card (HUNAIX ERP) -->
-        <div
-          class="relative h-[360px] sm:h-[420px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+        <a [routerLink]="['/projects', 'erp']"
+          class="relative h-[360px] sm:h-[420px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer block">
           <img
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
             alt="HUNAIX ERP"
@@ -57,27 +57,27 @@
             </div>
 
             <!-- Explore More Link -->
-            <a href="#contact"
-              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-2 transition-colors">
+            <div
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 group-hover:text-white pt-2 transition-colors">
               <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
-              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
         <!-- 2. Logo / Brand Badge Card (Square at Bottom Left) -->
-        <div
-          class="h-[160px] sm:h-[180px] rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] flex items-center justify-center p-6 group hover:shadow-xl transition-all">
-          <div class="flex flex-col items-center justify-center gap-2.5 transform group-hover:scale-105 transition-transform">
+        <a routerLink="/projects"
+          class="h-[160px] sm:h-[180px] rounded-3xl bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.06)] flex items-center justify-center p-6 group hover:shadow-xl transition-all cursor-pointer block">
+          <div class="flex flex-col items-center justify-center gap-2.5 transform group-hover:scale-105 transition-transform h-full">
             <img style="width: 55px; height: 55px;"
               src="https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/mark-white_ztpihw.png"
               class="dark:brightness-100 brightness-0"
               alt="HUNAIX">
             <span class="text-xs font-black tracking-widest text-[var(--color-primary)]">HUNAIX SUITE</span>
           </div>
-        </div>
+        </a>
 
       </div>
 
@@ -98,8 +98,8 @@
         </div>
 
         <!-- 4. Landscape Product Card (HUNAIX ANALYZER) -->
-        <div
-          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+        <a [routerLink]="['/projects', 'analyzer']"
+          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer block">
           <img
             src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
             alt="HUNAIX ANALYZER"
@@ -122,19 +122,19 @@
               </div>
             </div>
 
-            <a href="#contact"
-              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+            <div
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 group-hover:text-white pt-1 transition-colors">
               <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
-              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
         <!-- 5. Landscape Product Card (HUNAIX SOCIAL) -->
-        <div
-          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+        <a [routerLink]="['/projects', 'social']"
+          class="relative h-[190px] sm:h-[205px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer block">
           <img
             src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
             alt="HUNAIX SOCIAL"
@@ -157,15 +157,15 @@
               </div>
             </div>
 
-            <a href="#contact"
-              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+            <div
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 group-hover:text-white pt-1 transition-colors">
               <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
-              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
       </div>
 
@@ -173,8 +173,8 @@
       <div class="flex flex-col gap-5 lg:gap-6">
         
         <!-- 6. Landscape Product Card (HUNAIX AUDITOR) -->
-        <div
-          class="relative h-[180px] sm:h-[195px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+        <a [routerLink]="['/projects', 'auditor']"
+          class="relative h-[180px] sm:h-[195px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer block">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
             alt="HUNAIX AUDITOR"
@@ -197,19 +197,19 @@
               </div>
             </div>
 
-            <a href="#contact"
-              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 hover:text-white pt-1 transition-colors">
+            <div
+              class="inline-flex items-center gap-1.5 text-xs font-black text-sky-400 group-hover:text-white pt-1 transition-colors">
               <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
-              <svg class="w-3.5 h-3.5 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
         <!-- 7. Large Hero Product Card (HUNAIX AUTOMATION) -->
-        <div
-          class="relative h-[370px] sm:h-[415px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer">
+        <a [routerLink]="['/projects', 'automation']"
+          class="relative h-[370px] sm:h-[415px] rounded-3xl overflow-hidden shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-[var(--border-color-card)] group cursor-pointer block">
           <img
             src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
             alt="HUNAIX AUTOMATION"
@@ -232,15 +232,15 @@
               </div>
             </div>
 
-            <a href="#contact"
-              class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-sky-400 hover:text-white pt-2 transition-colors">
+            <div
+              class="inline-flex items-center gap-2 text-xs sm:text-sm font-black text-sky-400 group-hover:text-white pt-2 transition-colors">
               <span>{{ translationService.isArabic() ? 'معرفة المزيد' : 'Explore More' }}</span>
-              <svg class="w-4 h-4 transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" [class.rotate-180]="translationService.isArabic()" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
               </svg>
-            </a>
+            </div>
           </div>
-        </div>
+        </a>
 
       </div>
 

@@ -4,10 +4,12 @@ import { TranslationService } from '../../core/services/translation.service';
 import { ContentService } from '../../core/services/content.service';
 import { LocalizedString } from '../../core/models/hunaix.models';
 
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-solutions',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './solutions.component.html'
 })
 export class SolutionsComponent {
