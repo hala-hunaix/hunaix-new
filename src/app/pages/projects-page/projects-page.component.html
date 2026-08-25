@@ -49,9 +49,10 @@
       </button>
 
       <button (click)="setCategory('erp')"
-        [class.bg-[#0F4FCD]]="activeCategory() === 'erp'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'erp'"
         [class.text-white]="activeCategory() === 'erp'"
         [class.shadow-md]="activeCategory() === 'erp'"
+        [class.shadow-blue-500/25]="activeCategory() === 'erp'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'erp'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'erp'"
         [class.border]="activeCategory() !== 'erp'"
@@ -61,9 +62,10 @@
       </button>
 
       <button (click)="setCategory('analytics')"
-        [class.bg-[#D97706]]="activeCategory() === 'analytics'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'analytics'"
         [class.text-white]="activeCategory() === 'analytics'"
         [class.shadow-md]="activeCategory() === 'analytics'"
+        [class.shadow-blue-500/25]="activeCategory() === 'analytics'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'analytics'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'analytics'"
         [class.border]="activeCategory() !== 'analytics'"
@@ -73,9 +75,10 @@
       </button>
 
       <button (click)="setCategory('automation')"
-        [class.bg-[#7C3AED]]="activeCategory() === 'automation'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'automation'"
         [class.text-white]="activeCategory() === 'automation'"
         [class.shadow-md]="activeCategory() === 'automation'"
+        [class.shadow-blue-500/25]="activeCategory() === 'automation'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'automation'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'automation'"
         [class.border]="activeCategory() !== 'automation'"
@@ -85,9 +88,10 @@
       </button>
 
       <button (click)="setCategory('governance')"
-        [class.bg-[#334155]]="activeCategory() === 'governance'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'governance'"
         [class.text-white]="activeCategory() === 'governance'"
         [class.shadow-md]="activeCategory() === 'governance'"
+        [class.shadow-blue-500/25]="activeCategory() === 'governance'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'governance'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'governance'"
         [class.border]="activeCategory() !== 'governance'"
@@ -97,9 +101,10 @@
       </button>
 
       <button (click)="setCategory('marketing')"
-        [class.bg-[#2563EB]]="activeCategory() === 'marketing'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'marketing'"
         [class.text-white]="activeCategory() === 'marketing'"
         [class.shadow-md]="activeCategory() === 'marketing'"
+        [class.shadow-blue-500/25]="activeCategory() === 'marketing'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'marketing'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'marketing'"
         [class.border]="activeCategory() !== 'marketing'"
@@ -109,9 +114,10 @@
       </button>
 
       <button (click)="setCategory('crm')"
-        [class.bg-[#059669]]="activeCategory() === 'crm'"
+        [class.bg-[var(--color-primary)]]="activeCategory() === 'crm'"
         [class.text-white]="activeCategory() === 'crm'"
         [class.shadow-md]="activeCategory() === 'crm'"
+        [class.shadow-blue-500/25]="activeCategory() === 'crm'"
         [class.bg-[var(--bg-card)]]="activeCategory() !== 'crm'"
         [class.text-[var(--text-secondary)]]="activeCategory() !== 'crm'"
         [class.border]="activeCategory() !== 'crm'"

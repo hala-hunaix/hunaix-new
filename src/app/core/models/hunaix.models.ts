@@ -132,3 +132,23 @@ export interface WhyUsPillar {
   color: string;
 }
 
+export interface ClientLogo {
+  id: string;
+  name: string;
+  logo: string;
+}
+
+export interface TeamMember {
+  id: string;
+  name: LocalizedString;
+  designation: LocalizedString;
+  department: LocalizedString;
+  bio: LocalizedString;
+  image: string;
+  bgColor: string;
+  accentColor: string;
+  phone?: string;
+  email?: string;
+  linkedin?: string;
+}
+

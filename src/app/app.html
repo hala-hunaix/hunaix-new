@@ -17,13 +17,16 @@
   <!-- 3. Footer Layout -->
   <app-footer />
 
-  <!-- Floating Scroll To Top Button -->
+  <!-- Floating Scroll To Top Button (Diamond Shape) -->
   @if (showScrollTop()) {
   <button (click)="scrollToTop()"
-    class="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[var(--color-primary)] text-white shadow-2xl shadow-blue-600/50 flex items-center justify-center transform hover:scale-110 active:scale-95 transition-all cursor-pointer">
-    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
-    </svg>
+    title="Scroll To Top"
+    class="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 z-40 w-11 h-11 sm:w-12 sm:h-12 transform rotate-45 rounded-xl bg-gradient-to-br from-[#156FFF] to-[#0F4FCD] text-white shadow-2xl shadow-blue-600/50 flex items-center justify-center border border-white/25 hover:scale-110 active:scale-95 transition-all cursor-pointer">
+    <span class="transform -rotate-45 flex items-center justify-center">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
+      </svg>
+    </span>
   </button>
   }
 

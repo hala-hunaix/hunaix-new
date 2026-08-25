@@ -11,7 +11,9 @@ import {
   MethodologyStep,
   WhyUsPillar,
   ProjectDetail,
-  ProjectModule
+  ProjectModule,
+  ClientLogo,
+  TeamMember
 } from '../models/hunaix.models';
 
 /**
@@ -522,8 +524,8 @@ export class ContentService {
       category: 'analytics',
       categoryName: { en: 'Data & Analytics', ar: 'التحليلات والبيانات' },
       image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
-      color: '#D97706',
-      gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%)',
       overview: {
         en: 'HUNAIX ANALYZER centralizes data streams across finance, sales, branch performance, and operations. It provides customizable visualization widgets, automated anomaly alerts, and forecasting models.',
         ar: 'منصة متقدمة تجمع مصادر البيانات من مختلف الأنظمة، لتقديم لوحات قيادة لحظية، وتنبيهات استباقية عند وجود انحرافات في المبيعات أو التكاليف، مع تقارير تنبؤية للنمو.'
@@ -571,8 +573,8 @@ export class ContentService {
       category: 'automation',
       categoryName: { en: 'Workflow & RPA', ar: 'الأتمتة وسير العمل' },
       image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
-      color: '#7C3AED',
-      gradient: 'linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%)',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%)',
       overview: {
         en: 'HUNAIX AUTOMATION connects enterprise systems and orchestrates end-to-end business workflows. From auto-approving purchase orders to triggering employee onboarding tasks, operations run seamlessly 24/7.',
         ar: 'منظومة مبتكرة لربط التطبيقات والأنظمة المختلفة وإدارة مسارات الموافقات الذكية، تضمن استمرار العمليات بدقة عالية على مدار الساعة.'
@@ -615,8 +617,8 @@ export class ContentService {
       category: 'governance',
       categoryName: { en: 'Audit & Governance', ar: 'التدقيق والحوكمة' },
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-      color: '#334155',
-      gradient: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%)',
       overview: {
         en: 'HUNAIX AUDITOR empowers compliance officers and internal auditors to track procedural conformity, log corporate risks, verify statutory filings, and generate audit-ready documentation.',
         ar: 'حلول متقدمة لمسؤولي الامتثال والمدققين الداخليين لمتابعة سلامة الإجراءات ومطابقتها للأنظمة واللوائح والتحقق من الالتزامات الرسمية.'
@@ -659,8 +661,8 @@ export class ContentService {
       category: 'marketing',
       categoryName: { en: 'Social & Marketing', ar: 'التسويق والتواصل' },
       image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
-      color: '#2563EB',
-      gradient: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%)',
       overview: {
         en: 'HUNAIX SOCIAL helps enterprise marketing teams schedule and distribute content across X (Twitter), LinkedIn, Instagram, TikTok, and Snapchat, while managing incoming messages from a single shared inbox.',
         ar: 'منصة متكاملة تمكن فرق التسويق من جدولة ونشر المحتوى على منصات إكس، لينكد إن، إنستغرام، تيك توك، وسناب شات، مع الرد السريع على الرسائل من صندوق وارد موحد.'
@@ -703,8 +705,8 @@ export class ContentService {
       category: 'crm',
       categoryName: { en: 'CRM & Sales', ar: 'المبيعات والعملاء' },
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-      color: '#059669',
-      gradient: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
+      color: '#0F4FCD',
+      gradient: 'linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%)',
       overview: {
         en: 'HUNAIX CRM helps sales teams track deals from first touchpoint to contract signing. It provides automated follow-up reminders, quotation generators with VAT calculations, and comprehensive sales rep performance tracking.',
         ar: 'نظام صمم خصيصاً لمساعدة فرق المبيعات على تتبع الصفقات، إصدار عروض الأسعار المتوافقة مع الضريبة، وإدارة عقود العملاء وتذكيرات المتابعة الآلية.'
@@ -739,4 +741,115 @@ export class ContentService {
   getProjectById(id: string): ProjectDetail | undefined {
     return this.projectsCatalog.find(p => p.id === id);
   }
+
+  // Official Clients & Partners Logos
+  readonly clientLogos: ClientLogo[] = [
+    { id: 'wehotels', name: 'WeHotels', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344124/wehotels_fr94x0.png' },
+    { id: 'contact', name: 'Contact', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344124/contact_b2lfvu.png' },
+    { id: 'ecc-global', name: 'ECC Global', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344123/ecc-global_jnzt0m.png' },
+    { id: 'salfa', name: 'Salfa', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344123/salfa_a6fo48.png' },
+    { id: 'smsa', name: 'SMSA Express', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344123/smsa_fegoat.png' },
+    { id: 'taqweem', name: 'Taqweem', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/taqweem_hwpu4y.png' },
+    { id: 'tharwa', name: 'Tharwa', logo: 'https://res.cloudinary.com/dkbjna5nf/image/upload/v1787344121/tharwa_xxp8ui.png' }
+  ];
+
+  // Leadership & Executive Team Members (Exclusively using HUNAIX Brand Blue/Navy Palette & Studio Portraits)
+  readonly teamMembers: TeamMember[] = [
+    {
+      id: 'ibrahim',
+      name: { en: 'Eng. Ibrahim Al-Aziz', ar: 'م. إبراهيم بن عبدالعزيز' },
+      designation: { en: 'Chief Executive Officer & Founder', ar: 'الرئيس التنفيذي ومستشار تطوير الأعمال' },
+      department: { en: 'Executive Leadership', ar: 'القيادة التنفيذية' },
+      bio: {
+        en: 'Over 15 years of leadership expertise in scaling technology enterprises, corporate restructuring, and navigating public-private strategic partnerships in Saudi Arabia.',
+        ar: 'خبرة تتجاوز 15 عاماً في قيادة وتأسيس المنشآت والتحول المؤسسي وإبرام الشراكات الاستراتيجية داخل السوق السعودي وفق مستهدفات رؤية 2030.'
+      },
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#0F4FCD',
+      accentColor: '#156FFF',
+      phone: '+966 11 234 5678',
+      email: 'ibrahim@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    },
+    {
+      id: 'abdullah',
+      name: { en: 'Abdullah Al-Mansoor', ar: 'أ. عبدالله المنصور' },
+      designation: { en: 'Chief Financial Officer & Partner', ar: 'شريك الإدارة المالية والامتثال الضريبي' },
+      department: { en: 'Finance & ZATCA', ar: 'المالية والضرائب' },
+      bio: {
+        en: 'Certified financial advisor specialized in enterprise bookkeeping governance, ZATCA Phase 2 e-invoicing compliance, and statutory tax audits.',
+        ar: 'مستشار مالي معتمد خبير في حوكمة الدفاتر المحاسبية وتطبيقات الفوترة الإلكترونية ومعايير هيئة الزكاة والضريبة والجمارك.'
+      },
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#0A2E7A',
+      accentColor: '#2563EB',
+      phone: '+966 11 234 5679',
+      email: 'abdullah@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    },
+    {
+      id: 'sarah',
+      name: { en: 'Dr. Sarah Al-Qahtani', ar: 'د. سارة القحطاني' },
+      designation: { en: 'Chief Technology Officer (CTO)', ar: 'رئيس قطاع الحلول البرمجية والـ ERP' },
+      department: { en: 'Engineering & Cloud Systems', ar: 'التقنية والأنظمة السحابية' },
+      bio: {
+        en: 'Leads HUNAIX cloud architecture and engineering teams, delivering enterprise-grade secure SaaS platforms and automated workflow solutions.',
+        ar: 'تقود فرق هندسة وتطوير منظومة HUNAIX السحابية، مع خبرة واسعة في بنية الأنظمة عالية الأمان والأداء وأتمتة العمليات RPA.'
+      },
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#156FFF',
+      accentColor: '#38BDF8',
+      phone: '+966 11 234 5680',
+      email: 'sarah@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    },
+    {
+      id: 'noura',
+      name: { en: 'Noura Al-Subaie', ar: 'أ. نورة السبيعي' },
+      designation: { en: 'Head of Government Relations & MISA', ar: 'مدير شؤون الاستثمار والعلاقات الحكومية' },
+      department: { en: 'Corporate & MISA Setup', ar: 'الخدمات الحكومية وتأسيس الشركات' },
+      bio: {
+        en: 'Expert in Ministry of Investment (MISA) licenses, commercial registrations, and corporate governance for regional and foreign entities.',
+        ar: 'متخصصة في تراخيص وزارة الاستثمار MISA وتأسيس الشركات الأجنبية والمحلية وحوكمة ملفات قوى ومقيم والتأمينات الاجتماعية.'
+      },
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#0369A1',
+      accentColor: '#0EA5E9',
+      phone: '+966 11 234 5681',
+      email: 'noura@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    },
+    {
+      id: 'haifa',
+      name: { en: 'Haifa Al-Shammari', ar: 'أ. هيفاء الشمري' },
+      designation: { en: 'Chief Marketing & Growth Officer', ar: 'رئيس استراتيجيات النمو والعلامة التجارية' },
+      department: { en: 'Marketing & Brand Strategy', ar: 'التسويق والهوية التجارية' },
+      bio: {
+        en: 'Strategist driving multi-channel digital performance, brand positioning, and audience conversion optimization for client portfolios.',
+        ar: 'تقود استراتيجيات التسويق الرقمي، إدارة الحملات الإعلانية متعددة القنوات، وبناء الهويات المؤسسية ورفع العائد الإعلاني ROAS.'
+      },
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#1E40AF',
+      accentColor: '#3B82F6',
+      phone: '+966 11 234 5682',
+      email: 'haifa@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    },
+    {
+      id: 'fahad',
+      name: { en: 'Fahad Al-Dosari', ar: 'م. فهد الدوسري' },
+      designation: { en: 'Chief Operating Officer (COO)', ar: 'مدير العمليات التشغيلية وضبط الجودة' },
+      department: { en: 'Operations & Quality', ar: 'العمليات وضبط الجودة' },
+      bio: {
+        en: 'Oversees operational execution excellence, SLA compliance tracking, and continuous agile process improvement across client deliveries.',
+        ar: 'يشرف على ضبط جودة المخرجات، مسارات التنفيذ الرشيقة، ومتابعة مؤشرات الأداء التشغيلي لضمان سرعة ودقة الإنجاز.'
+      },
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      bgColor: '#0B3CA0',
+      accentColor: '#60A5FA',
+      phone: '+966 11 234 5683',
+      email: 'fahad@hunaix.com',
+      linkedin: 'https://linkedin.com'
+    }
+  ];
 }

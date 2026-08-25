@@ -189,3 +189,156 @@ body {
     border-radius: 0;
   }
 }
+
+/* ==========================================================================
+   INFINITE MARQUEE CLIENT LOGO SLIDER
+   ========================================================================== */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+[dir="rtl"] .animate-marquee {
+  animation: marquee-scroll-rtl 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* ==========================================================================
+   TEAM & LEADERSHIP SHOWCASE LIGHT & DARK THEME CLASSES
+   ========================================================================== */
+.team-container-card {
+  background: linear-gradient(135deg, #EEF4FD 0%, #F8FBFF 50%, #E3EDFC 100%);
+  border: 1px solid #D2E3F9;
+  color: #0A1128;
+  box-shadow: 0 16px 45px rgba(15, 79, 205, 0.07);
+}
+
+.dark .team-container-card,
+[data-theme="dark"] .team-container-card {
+  background: linear-gradient(135deg, #0B1E4A 0%, #050B24 60%, #020514 100%);
+  border: 1px solid rgba(21, 111, 255, 0.25);
+  color: #FFFFFF;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.team-featured-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #CFE2FA;
+  box-shadow: 0 12px 36px rgba(15, 79, 205, 0.08);
+}
+
+.dark .team-featured-card,
+[data-theme="dark"] .team-featured-card {
+  background: rgba(15, 27, 59, 0.92);
+  border: 1px solid rgba(21, 111, 255, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.team-member-name-active {
+  color: #0F4FCD;
+}
+.dark .team-member-name-active,
+[data-theme="dark"] .team-member-name-active {
+  color: #FFFFFF;
+}
+
+.team-member-name-inactive {
+  color: #334155;
+}
+.dark .team-member-name-inactive,
+[data-theme="dark"] .team-member-name-inactive {
+  color: #94A3B8;
+}
+
+.team-member-dept {
+  color: #64748B;
+}
+.dark .team-member-dept,
+[data-theme="dark"] .team-member-dept {
+  color: #64748B;
+}
+
+.team-nav-prev-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1E293B;
+  border: 1px solid #CBD5E1;
+}
+.dark .team-nav-prev-btn,
+[data-theme="dark"] .team-nav-prev-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.team-nav-prev-btn:hover {
+  border-color: #0F4FCD;
+  background: #EBF3FE;
+}
+.dark .team-nav-prev-btn:hover,
+[data-theme="dark"] .team-nav-prev-btn:hover {
+  border-color: #156FFF;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.team-nav-next-btn {
+  background: linear-gradient(135deg, #156FFF 0%, #0F4FCD 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(21, 111, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(15, 79, 205, 0.35);
+}
+.team-nav-next-btn:hover {
+  background: linear-gradient(135deg, #38BDF8 0%, #156FFF 100%);
+  box-shadow: 0 10px 28px rgba(15, 79, 205, 0.45);
+}
+
+/* Diamond (Rhombus) Nav Buttons for Team Showcase */
+.diamond-nav-btn {
+  width: 42px;
+  height: 42px;
+  transform: rotate(45deg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.diamond-nav-btn:hover {
+  transform: rotate(45deg) scale(1.1);
+}
+.diamond-nav-btn:active {
+  transform: rotate(45deg) scale(0.95);
+}
+
+.diamond-nav-icon {
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
