@@ -1,0 +1,135 @@
+<!-- Outer fixed container positioned at the bottom-start corner with a high z-index -->
+<div class="fixed bottom-24 start-6 ltr:left-6 rtl:right-6 z-50 flex flex-col">
+
+  <!-- ========================================== -->
+  <!-- FLOATING CHAT WINDOW                       -->
+  <!-- ========================================== -->
+  @if (chatStore.isOpen()) {
+    <div 
+      class="mb-4 w-[380px] max-w-[calc(100vw-2rem)] h-[550px] max-h-[calc(100vh-10rem)] 
+             bg-[var(--bg-card)] border border-[var(--border-color-card)] 
+             rounded-3xl shadow-2xl overflow-hidden flex flex-col 
+             animate-in fade-in zoom-in-95 duration-200"
+      role="dialog"
+      aria-label="Chatbot Window"
+    >
+      <!-- HEADER: Brand Info, Dynamic Status, and Close Button -->
+      <div class="px-5 py-4 bg-gradient-to-r from-[#0F4FCD] to-[#156FFF] text-white flex justify-between items-center shadow-md relative overflow-hidden shrink-0">
+        <!-- Decorative background glow effect -->
+        <div class="absolute rtl:-right-4 ltr:-left-4 -top-4 w-24 h-24 bg-white/20 rounded-full blur-2xl"></div>
+
+        <div class="flex items-center gap-3 relative z-10">
+          <!-- Bot Avatar Icon -->
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-inner text-xl">
+            🤖
+          </div>
+          <div>
+            <!-- Bot Name heading retrieved from store translations -->
+            <h3 class="font-black text-sm tracking-wide text-white">{{ chatStore.translations().botName }}</h3>
+            <!-- Live status text with pulsing indicator dot -->
+            <p class="text-[10px] text-blue-100 font-medium flex items-center gap-1.5 mt-0.5" aria-live="polite">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> {{ chatStore.translations().status }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Toggle / Close Chat Button -->
+        <button 
+          type="button"
+          aria-label="Close Chat"
+          (click)="chatStore.toggleChat()" 
+          class="text-white/80 cursor-pointer hover:text-white transition-colors relative z-10 p-2 hover:bg-white/10 rounded-lg">
+          ✕
+        </button>
+      </div>
+
+      <!-- CHAT BODY: Message History Log and Typing Indicator -->
+      <div #chatScrollContainer 
+           class="flex-1 overflow-y-auto p-5 space-y-4 bg-[var(--bg-card)] scroll-smooth custom-scrollbar"
+           aria-live="polite" 
+           role="log">
+        <!-- Loop through localized messages with sender-based alignment and directional bubble rounding -->
+        @for (msg of chatStore.localizedMessages(); track msg.id) {
+          <div class="flex" [ngClass]="msg.sender === 'user' ? 'rtl:justify-start ltr:justify-end' : 'rtl:justify-end ltr:justify-start'">
+            <div 
+              class="max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed shadow-sm break-words"
+              [ngClass]="msg.sender === 'user' 
+              ? 'bg-[#0F4FCD] text-white rtl:rounded-br-sm rtl:rounded-bl-2xl ltr:rounded-bl-sm ltr:rounded-br-2xl' 
+              : 'bg-[var(--bg-page)] text-[var(--text-primary)] border border-[var(--border-color-card)] rtl:rounded-bl-sm rtl:rounded-br-2xl ltr:rounded-br-sm ltr:rounded-bl-2xl'">
+              {{ msg.text }}
+            </div>
+          </div>
+        }
+
+        <!-- TYPING INDICATOR: Animated bouncing dots shown while the bot processes a reply -->
+        @if (chatStore.isTyping()) {
+          <div class="flex rtl:justify-end ltr:justify-start" aria-label="Bot is typing">
+            <div class="px-4 py-3.5 rounded-2xl rtl:rounded-bl-sm rtl:rounded-br-2xl ltr:rounded-br-sm ltr:rounded-bl-2xl bg-[var(--bg-page)] border border-[var(--border-color-card)] flex items-center gap-1.5 shadow-sm h-[40px]">
+              <span class="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-300 rounded-full animate-bounce"></span>
+              <span class="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+              <span class="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- INPUT AREA: Form with message text input and send action button -->
+      <div class="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color-card)] shrink-0">
+        <form (ngSubmit)="onSend()" class="relative flex items-center">
+          <input 
+            type="text" 
+            [ngModel]="messageText()" 
+            (ngModelChange)="messageText.set($event)"
+            name="message"
+            [placeholder]="chatStore.translations().placeholder" 
+            aria-label="Type your message"
+            class="w-full bg-[var(--bg-page)] text-[var(--text-primary)] border border-[var(--border-color-card)] rounded-2xl rtl:pl-14 rtl:pr-4 ltr:pr-14 ltr:pl-4 py-3.5 text-sm focus:ring-2 focus:ring-[#0F4FCD]/50 transition-all outline-none placeholder:text-[var(--text-secondary)]"
+            autocomplete="off"
+          >
+
+          <!-- Submit Send Button -->
+          <button 
+            type="submit" 
+            aria-label="Send Message"
+            [disabled]="!messageText().trim()"
+            class="absolute cursor-pointer rtl:left-2 ltr:right-2 w-10 h-10 rounded-xl bg-[#0F4FCD] text-white flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#156FFF] transition-colors shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  }
+
+  <!-- ========================================== -->
+  <!-- FLOATING ACTION BUTTON (FAB)               -->
+  <!-- ========================================== -->
+  <button 
+    type="button"
+    [attr.aria-expanded]="chatStore.isOpen()"
+    aria-controls="chat-window"
+    aria-label="Toggle Chat"
+    (click)="chatStore.toggleChat()"
+    class="w-14 h-14 cursor-pointer rounded-full bg-gradient-to-r from-[#0F4FCD] to-[#156FFF] text-white shadow-lg shadow-blue-600/30 hover:shadow-xl hover:shadow-blue-600/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center group relative outline-none z-50"
+  >
+    <!-- Ping animation effect shown only when the chat window is closed -->
+    @if (!chatStore.isOpen()) {
+      <div class="absolute inset-0 w-full h-full rounded-full animate-ping opacity-30 bg-[#156FFF]"></div>
+    }
+
+    <!-- Dynamic icon toggle between chat bubble and close/collapse chevron -->
+    <span class="text-2xl transition-transform duration-300 flex items-center justify-center">
+      @if (!chatStore.isOpen()) {
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+      } @else {
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      }
+    </span>
+  </button>
+</div>
