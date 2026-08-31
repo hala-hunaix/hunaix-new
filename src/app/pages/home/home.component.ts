@@ -9,7 +9,6 @@ import { MethodologyComponent } from '../../features/methodology/methodology.com
 import { SolutionsComponent } from '../../features/solutions/solutions.component';
 import { CalculatorComponent } from '../../features/calculator/calculator.component';
 import { FaqsComponent } from '../../features/faqs/faqs.component';
-import { MapSectionComponent } from '../../features/map-section/map-section.component';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +22,6 @@ import { MapSectionComponent } from '../../features/map-section/map-section.comp
     SolutionsComponent,
     CalculatorComponent,
     FaqsComponent,
-    MapSectionComponent
   ],
   templateUrl: './home.component.html'
 })
