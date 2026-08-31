@@ -80,7 +80,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           <a [href]="directMapLink()" target="_blank" rel="noopener noreferrer" class="flex flex-wrap items-center gap-1.5 text-[var(--text-primary)] cursor-pointer">
-            <span class="font-bold opacity-90">{{ translationService.isArabic() ? 'الموقع:' : 'Location:' }}</span>
+            <span class="font-bold">{{ translationService.isArabic() ? 'الموقع:' : 'Location:' }}</span>
             <span class="group-hover:text-[var(--color-primary)] transition-colors">{{ translationService.isArabic() ? 'جدة' : 'Jeddah, KSA' }}</span>
           </a>
         </li>
