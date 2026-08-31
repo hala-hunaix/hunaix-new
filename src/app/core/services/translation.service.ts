@@ -184,7 +184,7 @@ export class TranslationService {
       ar: 'HUNAIX — شريك أعمالك المتكامل لإدارة وتشغيل وتنمية الأعمال في المملكة العربية السعودية.'
     },
     'footer.servicesTitle': { en: 'Our Services', ar: 'خدماتنا' },
-    'footer.officesTitle': { en: 'Locations', ar: 'مواقعنا' },
+    'footer.officesTitle': { en: 'Contact', ar: 'تواصل معنا' },
     'footer.quickLinksTitle': { en: 'Quick Links', ar: 'روابط سريعة' },
     'footer.rights': { en: '© 2026 HUNAIX Business Solutions. All Rights Reserved.', ar: '© 2026 شركة HUNAIX لحلول وإدارة الأعمال. جميع الحقوق محفوظة.' },
     'footer.langSwitch': { en: 'العربية', ar: 'English' }

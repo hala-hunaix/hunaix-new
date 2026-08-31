@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ThemeService } from '../../core/services/theme.service';
@@ -28,4 +28,14 @@ export class FooterComponent {
   toggleLanguage(): void {
     this.translationService.toggleLanguage();
   }
+
+    // Signal storing the geographic Plus Code for precise map positioning
+  readonly plusCode = signal('G5JC+3WF');
+  // Signal storing the descriptive text location/address
+  readonly cityLocation = signal('Al-Hamra\'a, Jeddah Saudi Arabia');
+
+  // Computed signal generating a direct external link URL to Google Maps search
+  readonly directMapLink = computed(() => 
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.plusCode() + ' ' + this.cityLocation())}`
+  );
 }

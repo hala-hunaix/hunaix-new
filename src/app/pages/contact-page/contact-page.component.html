@@ -8,8 +8,7 @@
 
     <!-- 1. Page Header -->
     <div class="text-center space-y-4 max-w-3xl mx-auto pt-4">
-      <div
-        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] text-xs font-black uppercase tracking-wider">
         <span class="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse"></span>
         {{ translationService.isArabic() ? 'تواصل معنا' : 'CONTACT US' }}
       </div>
@@ -33,13 +32,12 @@
       </div>
     </div>
 
-    <!-- 2. Main Contact Grid (Form + Office Locations) -->
+    <!-- 2. Main Contact Grid (Form + Office Locations + Map) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-      <!-- Left Column: Direct Consultation Booking Form -->
+      <!-- Left Column: Direct Consultation Booking Form (7 Cols) -->
       <div class="lg:col-span-7">
-        <div
-          class="rounded-3xl p-8 sm:p-10 bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] shadow-2xl shadow-blue-500/5 space-y-6 relative overflow-hidden">
+        <div class="rounded-3xl p-8 sm:p-10 bg-[var(--bg-card)] border-2 border-[var(--border-color-card)] shadow-2xl shadow-blue-500/5 space-y-6 relative overflow-hidden">
           
           <div class="space-y-2 border-b border-[var(--border-color-card)] pb-4">
             <h2 class="text-2xl font-black text-[var(--text-primary)]">
@@ -151,11 +149,10 @@
         </div>
       </div>
 
-      <!-- Right Column: Regional Office Cards & WhatsApp Quick Chat -->
-      <div class="lg:col-span-5 space-y-6">
-        
+      <!-- Right Column: WhatsApp Quick Chat + Office Locations + Interactive Map (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">        
         <!-- WhatsApp Quick Chat Card -->
-        <a href="https://wa.me/966501234567" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/966580090316" target="_blank" rel="noopener noreferrer"
           class="block rounded-3xl p-6 sm:p-7 bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-xl shadow-emerald-500/20 group hover:scale-102 transition-all">
           <div class="flex items-center justify-between gap-4">
             <div class="space-y-1">
@@ -177,10 +174,6 @@
 
         <!-- Office Locations List -->
         <div class="space-y-4">
-          <h3 class="text-lg font-black text-[var(--text-primary)]">
-            {{ translationService.isArabic() ? 'مقراتنا في المملكة العربية السعودية' : 'Our Regional Offices in KSA' }}
-          </h3>
-
           @for (office of contentService.offices; track office.id) {
             <div
               class="rounded-3xl p-6 bg-[var(--bg-card)] border border-[var(--border-color-card)] shadow-xs hover:shadow-md transition-all space-y-3">
@@ -207,9 +200,28 @@
           }
         </div>
 
+        <!--  Map Section Added Here -->
+        <div class="h-[350px] w-full bg-[var(--bg-card)] border border-[var(--border-color-card)] rounded-3xl overflow-hidden shadow-md relative groupmt-6">
+          <iframe
+            [src]="mapUrl"
+            class="w-full h-full border-0 grayscale-[25%] contrast-[105%] group-hover:grayscale-0 transition-all duration-500"
+            title="HUNAIX location in Al-Hamra'a, Jeddah"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+          <div class="absolute top-4 right-4 bg-[var(--bg-card)]/90 backdrop-blur-md border border-[var(--border-color-card)] px-4 py-2 rounded-2xl shadow-lg  flex items-center gap-2 text-xs font-bold text-[var(--text-primary)] pointer-events-none z-10">
+            <span class="w-2.5 h-2.5 rounded-full   bg-emerald-500   animate-ping"></span>
+            <span>
+              {{ isArabic()
+                ? 'مقر HUNAIX - جدة'
+                : 'HUNAIX Jeddah HQ'
+              }}
+            </span>
+          </div>
+        </div>
+        <!-- End of Map Section -->
       </div>
-
     </div>
-
   </div>
 </div>

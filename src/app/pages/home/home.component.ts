@@ -21,7 +21,7 @@ import { FaqsComponent } from '../../features/faqs/faqs.component';
     MethodologyComponent,
     SolutionsComponent,
     CalculatorComponent,
-    FaqsComponent
+    FaqsComponent,
   ],
   templateUrl: './home.component.html'
 })

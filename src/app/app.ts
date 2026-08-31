@@ -7,6 +7,7 @@ import { TranslationService } from './core/services/translation.service';
 // Layout Components
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ChatBotComponent } from './layout/chat-bot/presentation/chat-bot.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ import { FooterComponent } from './layout/footer/footer.component';
     CommonModule,
     RouterOutlet,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ChatBotComponent
+    
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

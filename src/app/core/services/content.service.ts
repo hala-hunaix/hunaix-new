@@ -376,23 +376,13 @@ export class ContentService {
     {
       id: 'ksa',
       title: { en: 'Head Office - Saudi Arabia', ar: 'المقر الرئيسي - المملكة العربية السعودية' },
-      phone: '+966 11 234 5678',
+      phone: '+966 58 009 0316',
       email: 'info@hunaix.com',
       address: {
-        en: 'Riyadh, Kingdom of Saudi Arabia',
-        ar: 'الرياض، المملكة العربية السعودية'
+        en: 'Jeddah, Kingdom of Saudi Arabia',
+        ar: 'جدة، المملكة العربية السعودية'
       }
     },
-    {
-      id: 'regional',
-      title: { en: 'Regional Operations Hub', ar: 'مركز العمليات الإقليمي' },
-      phone: '+966 50 123 4567',
-      email: 'support@hunaix.com',
-      address: {
-        en: 'Kingdom of Saudi Arabia (All Regions)',
-        ar: 'المملكة العربية السعودية (كافة المناطق)'
-      }
-    }
   ];
 
   // Frequently Asked Questions (from FAQ Screen)
