@@ -6,6 +6,13 @@
 <div class="hunaix-wrapper min-h-screen transition-colors duration-300 relative overflow-hidden flex flex-col justify-between"
   [class.dark]="themeService.isDark()" [attr.dir]="translationService.direction()">
 
+  <!-- Top Navigation Progress Bar -->
+  @if (isNavigating()) {
+    <div class="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-blue-950/20 overflow-hidden pointer-events-none">
+      <div class="h-full bg-gradient-to-r from-[#156FFF] via-sky-400 to-indigo-500 w-full animate-pulse shadow-sm shadow-blue-500"></div>
+    </div>
+  }
+
   <!-- 1. Header Layout -->
   <app-header />
 

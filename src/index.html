@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="ar" dir="rtl" class="rtl" data-theme="light">
 <head>
   <meta charset="utf-8">
   <title>HUNAIX | Enterprise Intelligence Platform</title>
@@ -11,8 +11,202 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Fullscreen High-Performance Splash Screen */
+    #app-splash-screen {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 45%, #0B1936 0%, #050B17 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999999;
+      opacity: 1;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      font-family: 'Cairo', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    #app-splash-screen.splash-fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(1.03);
+    }
+
+    /* Ambient background lights */
+    .splash-bg-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.35;
+      animation: splashAura 4s ease-in-out infinite alternate;
+    }
+    .splash-bg-glow-1 {
+      top: 20%;
+      left: 25%;
+      width: 380px;
+      height: 380px;
+      background: rgba(21, 111, 255, 0.28);
+    }
+    .splash-bg-glow-2 {
+      bottom: 20%;
+      right: 25%;
+      width: 340px;
+      height: 340px;
+      background: rgba(56, 189, 248, 0.2);
+      animation-delay: -2s;
+    }
+
+    .splash-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      padding: 24px;
+    }
+
+    .splash-logo-wrapper {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .splash-logo-glow {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(21, 111, 255, 0.5) 0%, rgba(56, 189, 248, 0.2) 45%, transparent 70%);
+      animation: splashPulse 2.4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .splash-logo-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(56, 189, 248, 0.35);
+      animation: splashSpin 14s linear infinite;
+    }
+
+    .splash-logo-img {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 10px 28px rgba(21, 111, 255, 0.6));
+      animation: splashFloat 2.8s ease-in-out infinite;
+    }
+
+    .splash-brand-title {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      margin-bottom: 6px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .splash-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      margin-bottom: 26px;
+      letter-spacing: 0.04em;
+    }
+
+    .splash-progress-track {
+      width: 220px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .splash-progress-bar {
+      height: 100%;
+      width: 45%;
+      background: linear-gradient(90deg, #156FFF, #38BDF8, #818CF8);
+      border-radius: 99px;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+      animation: splashProgress 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .splash-status-text {
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.08em;
+      animation: splashTextPulse 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes splashPulse {
+      0% { transform: scale(0.9); opacity: 0.4; }
+      100% { transform: scale(1.28); opacity: 1; }
+    }
+
+    @keyframes splashFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes splashSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes splashAura {
+      0% { transform: scale(0.95) translate(0, 0); }
+      100% { transform: scale(1.1) translate(10px, -10px); }
+    }
+
+    @keyframes splashProgress {
+      0% { transform: translateX(-100%); width: 30%; }
+      50% { width: 65%; }
+      100% { transform: translateX(260%); width: 30%; }
+    }
+
+    @keyframes splashTextPulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 0.95; }
+    }
+  </style>
 </head>
 <body class="antialiased selection:bg-blue-600 selection:text-white">
+  <!-- Initial Enterprise Splash Screen -->
+  <div id="app-splash-screen" role="status" aria-label="Loading HUNAIX">
+    <div class="splash-bg-glow splash-bg-glow-1"></div>
+    <div class="splash-bg-glow splash-bg-glow-2"></div>
+    <div class="splash-content">
+      <div class="splash-logo-wrapper">
+        <div class="splash-logo-glow"></div>
+        <div class="splash-logo-ring"></div>
+        <img src="images/mark-ai-blue.png" alt="HUNAIX" class="splash-logo-img">
+      </div>
+      <div class="splash-brand-title">HUNAIX</div>
+      <div class="splash-tagline">منصة ذكاء الأعمال والحلول المؤسسية</div>
+      <div class="splash-progress-track">
+        <div class="splash-progress-bar"></div>
+      </div>
+      <div class="splash-status-text">جاري تهيئة المنصة...</div>
+    </div>
+  </div>
+
   <app-root></app-root>
 </body>
 </html>

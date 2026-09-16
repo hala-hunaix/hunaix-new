@@ -236,11 +236,8 @@ export class TranslationService {
       if (saved === 'ar' || saved === 'en') {
         return saved;
       }
-      if (navigator.language && navigator.language.startsWith('en')) {
-        return 'en';
-      }
     }
-    return 'ar'; // Default to Arabic for Saudi enterprise profile
+    return 'ar'; // Default to Arabic as primary enterprise language
   }
 
   private applyLanguageToDOM(lang: Language, dir: Direction): void {

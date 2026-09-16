@@ -53,7 +53,20 @@
     <!-- Right Column: 3D Spatial Interactive Logo Card (Desktop Only: conditionally rendered to avoid mobile GPU/CPU overhead) -->
     @if (isDesktop()) {
     <div class="hidden lg:flex lg:col-span-5 justify-center items-center relative">
-      <div class="w-full max-w-[460px] aspect-square relative flex items-center justify-center">
+      <div class="w-full max-w-[480px] aspect-square relative flex items-center justify-center">
+        <!-- Subtle Dimensional Spatial Blueprint Grid -->
+        <div class="hero-spatial-grid"></div>
+
+        <!-- 4 Subtle Tech Blueprint Corner Crosshairs -->
+        <span
+          class="absolute top-3 start-3 text-blue-500/30 dark:text-blue-400/25 text-xs font-mono select-none pointer-events-none">+</span>
+        <span
+          class="absolute top-3 end-3 text-blue-500/30 dark:text-blue-400/25 text-xs font-mono select-none pointer-events-none">+</span>
+        <span
+          class="absolute bottom-3 start-3 text-blue-500/30 dark:text-blue-400/25 text-xs font-mono select-none pointer-events-none">+</span>
+        <span
+          class="absolute bottom-3 end-3 text-blue-500/30 dark:text-blue-400/25 text-xs font-mono select-none pointer-events-none">+</span>
+
         @defer {
         <app-hero-3d-logo ngSkipHydration />
         } @placeholder {
@@ -61,6 +74,84 @@
           <div class="w-10 h-10 rounded-full border-4 border-blue-500/20 border-t-blue-500 animate-spin"></div>
         </div>
         }
+
+        <!-- Floating Glass Badge 1: Top Corner (Certified Compliance / ZATCA & MISA) -->
+        <div class="absolute top-2 -start-2 xl:-start-6 z-20 animate-float-slow pointer-events-none select-none">
+          <div
+            class="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[var(--bg-card)]/85 backdrop-blur-xl border border-[var(--border-color)] shadow-[0_15px_35px_-8px_rgba(21,111,255,0.22)]">
+            <div
+              class="w-9 h-9 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div class="text-start">
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs font-black text-[var(--text-primary)]">
+                  {{ translationService.isArabic() ? 'امتثال معتمد 100%' : '100% Certified Compliance' }}
+                </span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+              <span class="text-[10px] text-[var(--text-secondary)] font-semibold block">
+                {{ translationService.isArabic() ? 'متوافق مع ZATCA و MISA' : 'ZATCA & MISA Compliant' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Glass Badge 2: Bottom-End Corner (Operational Savings & 3X Speed) -->
+        <div class="absolute bottom-4 -end-2 xl:-end-6 z-20 animate-float-reverse pointer-events-none select-none">
+          <div
+            class="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[var(--bg-card)]/85 backdrop-blur-xl border border-[var(--border-color)] shadow-[0_15px_35px_-8px_rgba(21,111,255,0.22)]">
+            <div
+              class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center text-[#156FFF] dark:text-blue-400 flex-shrink-0 shadow-sm border border-blue-500/20">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                  d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div class="text-start">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-[var(--text-primary)]">
+                  {{ translationService.isArabic() ? 'وفورات تشغيلية +35%' : '35%+ Cost Savings' }}
+                </span>
+                <span
+                  class="px-1.5 py-0.5 rounded-md text-[9px] font-black bg-blue-500/15 text-[#156FFF] dark:text-blue-400 border border-blue-500/25">
+                  {{ translationService.isArabic() ? 'تسريع 3X' : '3X Faster' }}
+                </span>
+              </div>
+              <div class="flex items-center gap-1 text-[10px] text-blue-600 dark:text-blue-400 font-bold">
+                <span>{{ translationService.isArabic() ? 'تقليص التكاليف وأتمتة فورية' : 'Reduced Overhead & Automation'
+                  }}</span>
+                <span>⚡</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Glass Badge 3: Bottom-Start Corner (Cloud ERP & Automation) -->
+        <div class="absolute bottom-6 -start-2 xl:-start-4 z-20 animate-float-delayed pointer-events-none select-none">
+          <div
+            class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[var(--bg-card)]/85 backdrop-blur-xl border border-[var(--border-color)] shadow-[0_15px_35px_-8px_rgba(21,111,255,0.18)]">
+            <div
+              class="w-8 h-8 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center text-indigo-500 flex-shrink-0">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+            </div>
+            <div class="text-start">
+              <span class="text-[11px] font-black text-[var(--text-primary)] block">
+                {{ translationService.isArabic() ? 'أتمتة ERP سحابية' : 'Cloud ERP Automation' }}
+              </span>
+              <span class="text-[9px] text-[var(--text-secondary)] font-medium block">
+                {{ translationService.isArabic() ? 'ربط إداري ومالي فوري' : 'Instant Integration' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     }

@@ -342,3 +342,58 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* Hero Floating Badges Animation */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4.2s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 4.8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-slow 4.5s ease-in-out 1.5s infinite;
+}
+
+/* Hero Spatial Dimension Blueprint Grid */
+.hero-spatial-grid {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  background-image: 
+    linear-gradient(to right, rgba(21, 111, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 111, 255, 0.18) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 15%, rgba(0, 0, 0, 0.5) 45%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95) 15%, rgba(0, 0, 0, 0.5) 45%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] .hero-spatial-grid,
+.dark .hero-spatial-grid {
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.22) 1px, transparent 1px);
+}
+
